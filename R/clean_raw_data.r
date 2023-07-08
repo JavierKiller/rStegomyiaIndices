@@ -52,7 +52,7 @@ clean_raw_data <- function(
   dftr <- dftr %>%
     separate(Localidad, into = c("clave_Localidad", "Localidad"), sep = " ")
 
-    colt = list(
+  colt = list(
     Tipo_de_Estudio = col_factor(c("Encuesta", "Verificacion")),
     Jurisdiccion = "f",
     clave_Localidad = "f",
@@ -75,7 +75,7 @@ clean_raw_data <- function(
 
   dftr1 <- read_csv(
     path_out,
-      col_types = colt,
+    col_types = colt,
   )
   write_csv(dftr1, path_out)
 

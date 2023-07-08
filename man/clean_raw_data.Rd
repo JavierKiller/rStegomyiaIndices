@@ -2,7 +2,7 @@
 % Please edit documentation in R/clean_raw_data.r
 \name{clean_raw_data}
 \alias{clean_raw_data}
-\title{Load raw data of entomology study}
+\title{Load and clean raw data from a entomology study}
 \usage{
 clean_raw_data(
   path,
@@ -23,7 +23,7 @@ clean_raw_data(
 A .csv file with selected and cleaned data
 }
 \description{
-Load raw data of entomology study
+Load and clean raw data from a entomology study
 }
 \examples{
 
