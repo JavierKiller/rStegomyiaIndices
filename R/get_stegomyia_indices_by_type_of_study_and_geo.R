@@ -16,7 +16,7 @@
 #'  @param `var` The geographic variable used to calculate the stegomyia
 #'    indices.
 #'  @return
-#'  The dataframe with stegomy indices of the selection of type of study and
+#'  The dataframe with stegomyia indices of the selection of type of study and
 #'    geographic variable.
 #' @export
 #'  @examples
@@ -25,10 +25,6 @@
 #'
 
 get_stegomyia_indices_by_type_of_study_and_geo <- function( df, st ="Verificacion", var){
-  # calculo de indice de bretau se potiene dividiendo el total de recipientes
-  # positivos entre el total de casas revisadas
-
-  #Filtrar el dataframe por tipo de estudio y variable geografica
     dfti <- df %>%
       filter(Tipo_de_Estudio ==  st) %>%
       group_by( !!sym(var)) %>%
