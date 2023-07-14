@@ -40,8 +40,5 @@ get_stegomyia_indices_by_type_of_study_and_geo <- function( df, st ="Verificacio
       ungroup()
    return(dfti)
 
-
-
-
 }
 
