@@ -1,23 +1,21 @@
-#library(tidyverse)
-#library(lazyeval)
-#library(lubridate)
+library(testthat)
+library(tidyverse)
 
-#source("R/get_stegomyia_indices_by_type_of_study_and_geo.r")
+source("R/get_stegomyia_indices_by_type_of_study_and_geo.r")
 
-df <- read_csv("./data/qr_for_test.csv")  # ,col_types = colt_
+df <- read_csv("./data/qr_for_test.csv")
 
-test_that("calculate Stegomyia indices for each sampling select study type and
-          geographic", {
+test_that("calculate Stegomyia indices for each sampling select study type and geographic", {
   col1_ <- c("Tipo_de_Estudio", "Localidad", "Casas_Revisadas",
               "Casas_Positivas", "Total_de_Recipientes_con_Agua",
               "Total_de_Recipientes_Positivos")
 
   df2 <- read_csv("./data/qr_for_test.csv", col_select = col1_)
 
-dfti <- df %>%
+  df2_  <- df2 %>%
     filter(Tipo_de_Estudio ==  "Verificacion") %>%
-    group_by( "Localidad") %>%
-    select(var, Casas_Revisadas,
+    group_by( Localidad) %>%
+    select(Localidad, Casas_Revisadas,
            Casas_Positivas,
            Total_de_Recipientes_con_Agua,
            Total_de_Recipientes_Positivos) %>%
@@ -27,7 +25,7 @@ dfti <- df %>%
               BI = sum(Total_de_Recipientes_Positivos)/ sum(Casas_Revisadas)*100
     )%>%
     ungroup()
-  return(dfti)
+  #return(df2_)
 
 
   df1 <- get_stegomyia_indices_by_type_of_study_and_geo(
@@ -35,10 +33,10 @@ dfti <- df %>%
     st = "Verificacion",
     var = "Localidad"
   )
-  expect_equal(df1, dfti)
+  expect_identical(df1, df2_)
 })
 
 
 
-# print(dft_)
+# print(df2_)
 

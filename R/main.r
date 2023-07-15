@@ -4,6 +4,7 @@ library(lubridate)
 library(ggplot2)
 library(rlang)
 
+
 source("R/clean_raw_data.r")
 source("R/get_stegomyia_indices_by_type_of_study_and_geo.r")
 source("R/get_stegomyia_indices_by_type_of_study_and_star_date.r")
