@@ -3,7 +3,7 @@ library(lazyeval)
 library(lubridate)
 
 #source("R/clean_raw_data.r")
-path <- "./data-raw/estudio_entomologico.txt"
+path <- "../data-raw/estudio_entomologico.txt"
 path_out <- "./data/qr2.csv"
 
 #df1 <- clean_raw_data(path)

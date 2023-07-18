@@ -5,6 +5,7 @@ library(ggplot2)
 library(rlang)
 library(testthat)
 library(dplyr)
+library(testthat)
 
 source("R/load_raw_data.r")
 source("R/clean_raw_data.r")
