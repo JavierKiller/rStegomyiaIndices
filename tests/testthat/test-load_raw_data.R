@@ -1,7 +1,7 @@
 
 
 
-path_raw_data <- "./data-raw/estudio_entomologico.txt"
+path_raw_data <- "~/CursoQR/Package1/rStegomyiaIndices/rStegomyiaIndices/data-raw/estudio_entomologico.txt"
 
 labels <- c(
   "Tipo_de_Estudio",
