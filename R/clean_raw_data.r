@@ -1,7 +1,11 @@
 #'  clean raw data from a entomology study
 #'
+#' @description
+#' A short description...mensionar la plataforma
+#' data.fram from load_raw_data
+#' mensionar todos los pasos
 #'
-#' @param `df` a string with raw data path
+#' @param `df` a data.frame with raw data path
 #' @param `path_out` path for that cleaned data
 #' @param `col_name` select variables
 #'

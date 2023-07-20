@@ -1,9 +1,11 @@
-#' Load raw data from a entomology study
+#' Load raw data from a .txt file of entomology study from nombre de pla plataforma
 #'
+#' @description
+#' A short description...
 #'
 #' @param `path` a string with raw data path
-#' @param `col_name` select variables
-#'
+#' @param `col_name` names of variables,
+#',
 #' @return A data frame with selected and format in variable data
 #' @export
 #'
@@ -47,9 +49,11 @@ load_raw_data <- function(
     str_replace_all(colnames(df), pattern = " ", replacement = "_")
   # Create four new columns by separating the two variable from the original
   # columns
+  # TODO if poner condicion para esta accion ####
   df <- df %>%
     separate(Localidad, into = c("Clave_Localidad", "Localidad"),
              sep = " ")
+  # TODO if poner condicion para esta accion ####
   df <- df %>%
     separate(Jurisdiccion, into = c("Clave_Jurisdiccion", "Jurisdiccion"),
              sep = " ")
