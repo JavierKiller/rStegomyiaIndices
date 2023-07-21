@@ -21,7 +21,7 @@ test_that("assess_load_raw_data",
   }
 )
 # TODO si no tiene la variable "Tipo de Estudio" no se puede trabajar con la base de datos ####
-# TODO provar sub conjuntos con de labels ####
+# TODO probar sub conjuntos con de labels ####
 col_select_sub <- c("Tipo de Estudio",
                     "Semana Epidemiologica",
                     "Casas Revisadas",
