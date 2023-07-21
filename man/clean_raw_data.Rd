@@ -2,42 +2,35 @@
 % Please edit documentation in R/clean_raw_data.r
 \name{clean_raw_data}
 \alias{clean_raw_data}
-\title{Load and clean raw data from a entomology study}
+\title{clean raw data from a entomology study}
 \usage{
 clean_raw_data(
-  path,
-  path_out = "./data/qr.csv",
-  col_name = c("Tipo de Estudio", "Jurisdiccion", "Localidad", "Sector",
-    "Fecha de Inicio", "Semana Epidemiologica", "Casas Revisadas", "Casas Positivas",
-    "Total de Recipientes con Agua", "Total de Recipientes Positivos")
+  df,
+  colt = list(Tipo_de_Estudio = col_factor(c("Encuesta", "Verificacion")),
+    Clave_Jurisdiccion = "f", Jurisdiccion = "f", Clave_Localidad = "f", Localidad = "f",
+    Sector = "f", Fecha_de_Inicio = col_date(format = "\%d/\%m/\%Y"),
+    Semana_Epidemiologica = "f", Casas_Revisadas = "d", Casas_Positivas = "d",
+    Total_de_Recipientes_con_Agua = "d", Total_de_Recipientes_Positivos = "d"),
+  path_out = "./data-raw/qr.csv"
 )
 }
 \arguments{
-\item{path}{a string with raw data path}
+\item{`df`}{a string with raw data path}
 
-\item{path_out}{path for that cleaned data}
+\item{`path_out`}{path for that cleaned data}
 
-\item{col_name}{select variables}
+\item{`col_name`}{select variables}
 }
 \value{
 A .csv file with selected and cleaned data
 }
 \description{
-Load and clean raw data from a entomology study
+clean raw data from a entomology study
 }
 \examples{
 
 path <- "./data-raw/estudio_entomologico.txt"
 
-col_select1 <- c("Tipo de Estudio",
-                 "Jurisdiccion", "Localidad",
-                 "Sector", "Fecha de Inicio",
-                 "Semana Epidemiologica",
-                 "Casas Revisadas",
-                 "Casas Positivas",
-                 "Total de Recipientes con Agua",
-                 "Total de Recipientes Positivos")
-
-df <- load_raw_data(path, col_name = col_select1)
+df <- load_raw_data(df)
 
 }

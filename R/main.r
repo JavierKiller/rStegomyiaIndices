@@ -5,7 +5,7 @@ library(ggplot2)
 library(rlang)
 library(testthat)
 library(dplyr)
-library(testthat)
+
 
 source("R/load_raw_data.r")
 source("R/clean_raw_data.r")
@@ -24,6 +24,13 @@ col_select <- c("Tipo de Estudio",
                  "Casas Positivas",
                  "Total de Recipientes con Agua",
                  "Total de Recipientes Positivos")
+
+col_select_sub <- c("Tipo de Estudio",
+                "Semana Epidemiologica",
+                "Casas Revisadas",
+                "Casas Positivas",
+                "Total de Recipientes con Agua",
+                "Total de Recipientes Positivos")
 
 df <- load_raw_data(path, col_name = col_select)
 

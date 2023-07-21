@@ -1,9 +1,16 @@
-#' Load raw data from a entomology study
+#' Load raw data  of entomology study
 #'
+#' @description
+#' Load raw data from a .txt file of entomology study from platform
+#' "Vigilancia Entomológica y Control Integral del Vector",chose the variables
+#' that use to calculate entomological risk indices. Fix variable labels
+#' Eliminate spaces in the column names and replace them with underscores _. If
+#' one of the locality and/or jurisdiction variables was chosen, new columns
+#' will be created separating the number of the variables and their name
 #'
 #' @param `path` a string with raw data path
-#' @param `col_name` select variables
-#'
+#' @param `col_name` names of variables,
+#',
 #' @return A data frame with selected and format in variable data
 #' @export
 #'
@@ -47,12 +54,18 @@ load_raw_data <- function(
     str_replace_all(colnames(df), pattern = " ", replacement = "_")
   # Create four new columns by separating the two variable from the original
   # columns
+
+  if("Localidad" %in% colnames(df)){
   df <- df %>%
     separate(Localidad, into = c("Clave_Localidad", "Localidad"),
              sep = " ")
+  }
+
+  if("Jurisdiccion" %in% colnames(df)){
   df <- df %>%
     separate(Jurisdiccion, into = c("Clave_Jurisdiccion", "Jurisdiccion"),
              sep = " ")
+  }
 
 
  return(df)
