@@ -7,6 +7,10 @@
 #' Eliminate spaces in the column names and replace them with underscores _. If
 #' one of the locality and/or jurisdiction variables was chosen, new columns
 #' will be created separating the number of the variables and their name
+#' Load raw data from a .txt file of entomology study from nombre de pla plataforma
+#'
+#' @description
+#' A short description...
 #'
 #' @param `path` a string with raw data path
 #' @param `col_name` names of variables,
@@ -62,6 +66,12 @@ load_raw_data <- function(
   }
 
   if("Jurisdiccion" %in% colnames(df)){
+  # TODO if poner condicion para esta accion ####
+  df <- df %>%
+    separate(Localidad, into = c("Clave_Localidad", "Localidad"),
+             sep = " ")
+  # TODO if poner condicion para esta accion ####
+
   df <- df %>%
     separate(Jurisdiccion, into = c("Clave_Jurisdiccion", "Jurisdiccion"),
              sep = " ")

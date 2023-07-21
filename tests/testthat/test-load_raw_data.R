@@ -43,4 +43,5 @@ test_that("assess_load_raw_data",
             expect_named(expected, labels_sub)
           }
 )
+# TODO provar sub conjuntos con de labels ####
 # TODO probar con archivos que no sean el la estructura del archivo a trabajar ####
