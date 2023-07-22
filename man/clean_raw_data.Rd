@@ -15,7 +15,7 @@ clean_raw_data(
 )
 }
 \arguments{
-\item{`df`}{a string with raw data path}
+\item{`df`}{a data.frame with raw data path}
 
 \item{`path_out`}{path for that cleaned data}
 
@@ -25,7 +25,9 @@ clean_raw_data(
 A .csv file with selected and cleaned data
 }
 \description{
-clean raw data from a entomology study
+A short description...mensionar la plataforma
+data.fram from load_raw_data
+mensionar todos los pasos
 }
 \examples{
 

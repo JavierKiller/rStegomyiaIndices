@@ -2,7 +2,7 @@
 % Please edit documentation in R/load_raw_data.r
 \name{load_raw_data}
 \alias{load_raw_data}
-\title{Load raw data from a entomology study}
+\title{Load raw data  of entomology study}
 \usage{
 load_raw_data(
   path,
@@ -14,13 +14,22 @@ load_raw_data(
 \arguments{
 \item{`path`}{a string with raw data path}
 
-\item{`col_name`}{select variables}
+\item{`col_name`}{names of variables,
+,}
 }
 \value{
 A data frame with selected and format in variable data
 }
 \description{
-Load raw data from a entomology study
+Load raw data from a .txt file of entomology study from platform
+"Vigilancia Entomológica y Control Integral del Vector",chose the variables
+that use to calculate entomological risk indices. Fix variable labels
+Eliminate spaces in the column names and replace them with underscores _. If
+one of the locality and/or jurisdiction variables was chosen, new columns
+will be created separating the number of the variables and their name
+Load raw data from a .txt file of entomology study from nombre de pla plataforma
+
+A short description...
 }
 \examples{
 
