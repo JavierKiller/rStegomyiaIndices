@@ -46,6 +46,19 @@ load_raw_data <- function(
 ){
   df <- read_tsv(
     path,
+    locale = locale(encoding = "UTF-16" )
+  )
+  names_df <- names(df)
+  condition_tipo_de_estudio_error <-  "Tipo de Estudio" %in% names_df
+  if (isFALSE(condition_tipo_de_estudio_error)) {
+    stop("data file .txt dont have Tipo de Estudio o path is incorrect")
+  }
+  condicion_nrows <- nrow(df)>0
+  if(isFALSE(condicion_nrows)){
+    stop("data file .txt is empty")
+  }
+  df <- read_tsv(
+    path,
     col_select = col_name,
     locale = locale(encoding = "UTF-16" )
   )
