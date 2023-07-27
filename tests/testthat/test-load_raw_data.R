@@ -25,14 +25,8 @@ labels_sub <- c(
   "Casas_Positivas",
   "Total_de_Recipientes_con_Agua",
   "Total_de_Recipientes_Positivos")
-col_select_sub <- c("Tipo de Estudio",
-                    "Semana Epidemiologica",
-                    "Casas Revisadas",
-                    "Casas Positivas",
-                    "Total de Recipientes con Agua",
-                    "Total de Recipientes Positivos")
 test_that(
-  "assess_load_raw_data_error_Td",
+  "assess_load_raw_data_error_Tipo_de_Estudio",
   {
     expect_error(
       load_raw_data(path = path_raw_data_error),
@@ -56,7 +50,13 @@ test_that("assess_load_raw_data",
 test_that(
   "assess_load_raw_data_labels_sub",
   {
-    expected <- load_raw_data(path = path_raw_data, col_name = col_select_sub )
+    col_select_sub <- c("Tipo de Estudio",
+                        "Semana Epidemiologica",
+                        "Casas Revisadas",
+                        "Casas Positivas",
+                        "Total de Recipientes con Agua",
+                        "Total de Recipientes Positivos")
+    expected <- load_raw_data(path = path_raw_data, col_name = col_select_sub)
     expect_s3_class(expected, "data.frame")
     expect_equal(dim(expected), c(20, 6))
     expect_named(expected, labels_sub)

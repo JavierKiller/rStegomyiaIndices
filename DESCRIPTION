@@ -15,5 +15,11 @@ Suggests:
 Config/testthat/edition: 3
 Depends: 
     R (>= 2.10)
-Imports: 
-  
+Imports:
+  tidyverse,
+  lazyeval,
+  lubridate,
+  rlang,
+  dplyr,
+  ggplot2,
+  readr
