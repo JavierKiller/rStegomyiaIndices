@@ -1,23 +1,19 @@
 #'  clean raw data from a entomology study
 #'
 #' @description
-#' data.frame chance type data of variable. previously  load with function
-#' "Load_raw_data" file .txt  of entomology study from platform
-#' "Vigilancia Entomológica y Control Integral del Vector", and make a file
-#' .csv of data.frame
-#'
-#' chose the variables
-#' that use to calculate entomological risk indices. Fix variable labels
-#' Eliminate spaces in the column names and replace them with underscores _.
-#' A short description...mensionar la plataforma
-#' data.fram from load_raw_data
-#' mensionar todos los pasos
+#' The function creates a data.frame containing data and chance type data. The
+#'  data is assumed to have been previously loaded using the function
+#'  "Load_raw_data" from a .txt file associated with an entomology study
+#'  conducted on the platform "Vigilancia Entomológica y Control Integral del
+#'  Vector". This function aims to generate new data.frame suitable for
+#'  further analysis and manipulation. I will also save the data from the
+#'  data.frame to a .csv file
 #'
 #' @param `df` a data.frame with raw data path
 #' @param `path_out` path for that cleaned data
 #' @param `col_name` select variables
 #'
-#' @return A .csv file with selected and cleaned data
+#' @return Data.frame A .csv file with selected and cleaned data
 #' @export
 #'
 #' @examples
@@ -26,13 +22,7 @@
 #'
 #' df <- load_raw_data(df)
 #'
-require(tidyverse)
-require(lazyeval)
-require(lubridate)
-require(ggplot2)
-require(rlang)
-require(testthat)
-require(dplyr)
+# TODO: camabiar la documentacion ####
 clean_raw_data <- function(
     df,
     colt= list(

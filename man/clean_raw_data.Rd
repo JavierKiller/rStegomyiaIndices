@@ -11,7 +11,7 @@ clean_raw_data(
     Sector = "f", Fecha_de_Inicio = col_date(format = "\%d/\%m/\%Y"),
     Semana_Epidemiologica = "f", Casas_Revisadas = "d", Casas_Positivas = "d",
     Total_de_Recipientes_con_Agua = "d", Total_de_Recipientes_Positivos = "d"),
-  path_out = "./data-raw/qr.csv"
+  path_out = "~/CursoQR/Package1/rStegomyiaIndices/rStegomyiaIndices/data-raw/qr.csv"
 )
 }
 \arguments{
@@ -22,9 +22,17 @@ clean_raw_data(
 \item{`col_name`}{select variables}
 }
 \value{
-A .csv file with selected and cleaned data
+Data.frame A .csv file with selected and cleaned data
 }
 \description{
+data.frame chance type data of variable. previously  load with function
+"Load_raw_data" file .txt  of entomology study from platform
+"Vigilancia Entomológica y Control Integral del Vector", and make a file
+.csv of data.frame
+
+chose the variables
+that use to calculate entomological risk indices. Fix variable labels
+Eliminate spaces in the column names and replace them with underscores _.
 A short description...mensionar la plataforma
 data.fram from load_raw_data
 mensionar todos los pasos
