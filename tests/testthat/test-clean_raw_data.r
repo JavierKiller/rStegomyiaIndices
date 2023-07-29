@@ -1,6 +1,7 @@
-path_data_prefix <- "~/CursoQR/Package1/rStegomyiaIndices/rStegomyiaIndices"
+path_data_prefix <- "~/CursoQR/Package1/rStegomyiaIndices"
 path_data_file_name <- "/data-raw/qr.csv"
 path_data <- paste(path_data_prefix, path_data_file_name, sep = "")
+#path_data <- "./data-raw/qr.csv"
 df <- read.csv(path_data)
 test_that("assess_clean_raw_data", {
   expected <- clean_raw_data(df)

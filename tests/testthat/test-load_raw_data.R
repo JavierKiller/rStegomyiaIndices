@@ -1,4 +1,4 @@
-path_raw_data_prefix <- "~/CursoQR/Package1/rStegomyiaIndices/rStegomyiaIndices"
+path_raw_data_prefix <- "~/CursoQR/Package1/rStegomyiaIndices"
 path_raw_data_file_name <- "/data-raw/estudio_entomologico.txt"
 path_raw_data <- paste(path_raw_data_prefix, path_raw_data_file_name, sep = "")
 prdefile_name <- "/data-raw/estudio_entomologico_equivocado.txt"

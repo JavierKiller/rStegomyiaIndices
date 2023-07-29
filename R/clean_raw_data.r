@@ -39,7 +39,7 @@ clean_raw_data <- function(
       Total_de_Recipientes_con_Agua = "d",
       Total_de_Recipientes_Positivos = "d"
     ),
-    path_out = "~/CursoQR/Package1/rStegomyiaIndices/rStegomyiaIndices/data-raw/qr.csv"
+    path_out = "~/CursoQR/Package1/rStegomyiaIndices/data-raw/qr.csv"
 ){
 
   write_csv(df, path_out)
