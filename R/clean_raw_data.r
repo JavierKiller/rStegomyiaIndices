@@ -2,12 +2,12 @@
 #'
 #' @description
 #' The function creates a data.frame containing data and chance type data. The
-#'  data is assumed to have been previously loaded using the function
-#'  "Load_raw_data" from a .txt file associated with an entomology study
-#'  conducted on the platform "Vigilancia Entomológica y Control Integral del
-#'  Vector". This function aims to generate new data.frame suitable for
-#'  further analysis and manipulation. I will also save the data from the
-#'  data.frame to a .csv file
+#' data is assumed to have been previously loaded using the function
+#' "Load_raw_data" from a .txt file associated with an entomology study
+#' conducted on the platform "Vigilancia Entomológica y Control Integral del
+#' Vector". This function aims to generate new data.frame suitable for
+#' further analysis and manipulation. I will also save the data from the
+#' data.frame to a .csv file
 #'
 #' @param `df` a data.frame with raw data path
 #' @param `path_out` path for that cleaned data
