@@ -11,7 +11,7 @@ clean_raw_data(
     Sector = "f", Fecha_de_Inicio = col_date(format = "\%d/\%m/\%Y"),
     Semana_Epidemiologica = "f", Casas_Revisadas = "d", Casas_Positivas = "d",
     Total_de_Recipientes_con_Agua = "d", Total_de_Recipientes_Positivos = "d"),
-  path_out = "~/CursoQR/Package1/rStegomyiaIndices/rStegomyiaIndices/data-raw/qr.csv"
+  path_out = "~/CursoQR/Package1/rStegomyiaIndices/data-raw/qr.csv"
 )
 }
 \arguments{
@@ -26,12 +26,12 @@ Data.frame A .csv file with selected and cleaned data
 }
 \description{
 The function creates a data.frame containing data and chance type data. The
- data is assumed to have been previously loaded using the function
- "Load_raw_data" from a .txt file associated with an entomology study
- conducted on the platform "Vigilancia Entomológica y Control Integral del
- Vector". This function aims to generate new data.frame suitable for
- further analysis and manipulation. I will also save the data from the
- data.frame to a .csv file
+data is assumed to have been previously loaded using the function
+"Load_raw_data" from a .txt file associated with an entomology study
+conducted on the platform "Vigilancia Entomológica y Control Integral del
+Vector". This function aims to generate new data.frame suitable for
+further analysis and manipulation. I will also save the data from the
+data.frame to a .csv file
 }
 \examples{
 

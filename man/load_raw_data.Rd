@@ -21,12 +21,13 @@ load_raw_data(
 A data frame with selected and format in variable data
 }
 \description{
-Load raw data from a .txt file of entomology study from platform
-"Vigilancia Entomológica y Control Integral del Vector",chose the variables
-that use to calculate entomological risk indices. Fix variable labels
-Eliminate spaces in the column names and replace them with underscores _. If
-one of the locality and/or jurisdiction variables was chosen, new columns
-will be created separating the number of the variables and their name
+Load_raw_data from a .txt file of the entomology study conducted on the
+platform 'Vigilancia Entomológica y Control Integral del Vector.' Choose the
+variables that will be used to calculate entomological risk indices. Fix
+variable labels and eliminate spaces in the column names, replacing them
+with underscores (_). If one of the "Localidad", "Municipio"and/or
+"Jurisdiccion" variables was selected, new columns will be created,
+separating the variable of number  and other with name.
 }
 \examples{
 
