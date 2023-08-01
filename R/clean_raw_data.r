@@ -22,13 +22,15 @@
 #'
 #' df <- load_raw_data(df)
 #'
-# TODO: camabiar la documentacion ####
 clean_raw_data <- function(
     df,
-    colt= list(
+    path_out = "~/CursoQR/Package1/rStegomyiaIndices/data-raw/qr.csv",
+    col_name = list(
       Tipo_de_Estudio = col_factor(c("Encuesta", "Verificacion")),
       Clave_Jurisdiccion = "f",
       Jurisdiccion = "f",
+      Clave_Municipio = "f",
+      Municipio = "f",
       Clave_Localidad = "f",
       Localidad = "f",
       Sector = "f",
@@ -38,18 +40,14 @@ clean_raw_data <- function(
       Casas_Positivas = "d",
       Total_de_Recipientes_con_Agua = "d",
       Total_de_Recipientes_Positivos = "d"
-    ),
-    path_out = "~/CursoQR/Package1/rStegomyiaIndices/data-raw/qr.csv"
+    )
 ){
-
   write_csv(df, path_out)
 
   df_aux <- read_csv(
     path_out,
-    col_types = colt,
+    col_types = col_name,
   )
   df <- df_aux
-
   return(df)
-}
-
+  }
