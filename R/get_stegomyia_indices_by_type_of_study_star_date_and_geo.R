@@ -1,15 +1,17 @@
 #' Get stegomyia indices by type of study, date and geo
 #'
 #'  @description
-#'  The Stegomyia indices are calculated for each sampling select study type,
-#'  date and geographic variable using the following formulas:
+#'  The Stegomyia indices are calculated for each sampling. Once the data have
+#'  been loaded with function "load_rwa_data" and changed type data of function
+#'  "clean_raw_data", select study type, date and geographic variable using the
+#'  following formulas:
 #'
-#'  * `Container Index(CI)`: number of infected containers × 100/total number
-#'     of containers
-#'  * `House Index (HI)`: number of infected houses × 100/total number of
-#'     houses
-#'  * `Breteau Index (BI)`: number of positive containers/number of houses
-#'     explored × 100
+#'  * `Container Index(CI)`: (number of infected containers /total number
+#'     of containers) * 100
+#'  * `House Index (HI)`: (number of infected houses /total number of
+#'     houses) * 100
+#'  * `Breteau Index (BI)`: (number of positive containers/number of houses
+#'     explored) * 100
 #'  @param `df` the dataframe with information
 #'  @param `st` The type of study selected. By default, it is set to
 #'    "Verificacion"
@@ -23,19 +25,18 @@
 #'  @examples
 #'  get_stegomyia_indices_by_type_of_study__star_date_and_geo(df, "Encuesta", "2021/01/07", "Sector")
 #'  @export
-
-
-
-get_stegomyia_indices_by_type_of_study__star_date_and_geo <- function(
+get_stegomyia_indices_by_type_of_study_star_date_and_geo <- function(
                                                                       df,
                                                                       st ="Verificacion",
                                                                       date = "2021/01/07",
                                                                       var
                                                                       )
 {
+  filtered_df <- df %>%
+    filter(Tipo_de_Estudio == st, Fecha_de_Inicio == ymd(date), Sector == var)
 
-  dfti <- df %>%
-    filter(Tipo_de_Estudio ==  te, Fecha_de_Inicio == ymd(date),
+   dfti <- df %>%
+    filter(Tipo_de_Estudio ==  st, Fecha_de_Inicio == ymd(date),
            Sector == var) %>%
     select(Casas_Revisadas,
            Casas_Positivas,
@@ -49,7 +50,4 @@ get_stegomyia_indices_by_type_of_study__star_date_and_geo <- function(
     )%>%
     ungroup()
   return(dfti)
-
 }
-
-

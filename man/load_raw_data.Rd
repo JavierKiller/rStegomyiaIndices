@@ -22,12 +22,13 @@ A data frame with selected and format in variable data
 }
 \description{
 Load_raw_data from a .txt file of the entomology study conducted on the
-platform 'Vigilancia Entomológica y Control Integral del Vector.' Choose the
+platform "Vigilancia Entomológica y Control Integral del Vector." Choose the
 variables that will be used to calculate entomological risk indices. Fix
 variable labels and eliminate spaces in the column names, replacing them
-with underscores (_). If one of the "Localidad", "Municipio"and/or
-"Jurisdiccion" variables was selected, new columns will be created,
-separating the variable of number  and other with name.
+with underscores (_).If one of the columns labeled as Locality,
+Municipality, or Jurisdiction is selected, two columns will be created from
+the original one. the names of the new columns will be the key number of
+the variable and the other with the name of the variable.
 }
 \examples{
 

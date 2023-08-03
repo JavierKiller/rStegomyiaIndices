@@ -26,12 +26,12 @@ clean_raw_data(
 Data.frame A .csv file with selected and cleaned data
 }
 \description{
-The function creates a data.frame containing data and chance type data. The
+The function creates a data.frame that contains data and changes type data. The
 data is assumed to have been previously loaded using the function
 "Load_raw_data" from a .txt file associated with an entomology study
 conducted on the platform "Vigilancia Entomológica y Control Integral del
 Vector". This function aims to generate new data.frame suitable for
-further analysis and manipulation. I will also save the data from the
+further analysis and manipulation. It also saves the data from the
 data.frame to a .csv file
 }
 \examples{

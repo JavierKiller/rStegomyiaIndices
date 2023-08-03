@@ -29,31 +29,24 @@ colt= list(
   Total_de_Recipientes_con_Agua = "d",
   Total_de_Recipientes_Positivos = "d"
 )
-colt_d = list(
-  Tipo_de_Estudio = col_factor(c("Encuesta", "Verificacion")),
-  Fecha_de_Inicio = col_date(format = "%d/%m/%Y"),
-  Semana_Epidemiologica = "f",
-  Casas_Revisadas = "d",
-  Casas_Positivas = "d",
-  Total_de_Recipientes_con_Agua = "d",
-  Total_de_Recipientes_Positivos = "d"
-)
 test_that("assess_clean_raw_data", {
   expected <- clean_raw_data(df, path_out = path_datat)
   expect_identical(str(colt), str(expected))
   expect_s3_class(expected, "data.frame")
   expect_equal(dim(expected), c(20, 12))
- })
-
+  }
+)
 test_that("assess_clean_raw_data_sub", {
   expected <- clean_raw_data(df_lew, path_out = path_data_lewt)
-  expect_identical(str(colt_d), str(expected))
+  expect_identical(str(colt), str(expected))
   expect_s3_class(expected, "data.frame")
   expect_equal(dim(expected), c(20, 7))
- })
+  }
+)
 test_that("assess_clean_raw_data_extra", {
   expected <- clean_raw_data(df_full, path_out = path_data_fullt)
   expect_identical(str(colt), str(expected))
   expect_s3_class(expected, "data.frame")
   expect_equal(dim(expected), c(20, 19))
-})
+  }
+)
