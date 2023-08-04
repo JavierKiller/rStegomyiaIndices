@@ -45,5 +45,6 @@ clean_raw_data <- function(
     col_types = col_name,
   )
   df <- df_aux
+  write_csv(df, path_out)
   return(df)
   }
