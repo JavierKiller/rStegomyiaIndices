@@ -34,8 +34,11 @@ get_stegomyia_indices_by_type_of_study_star_date_and_geo <- function(
 {
   filtered_df <- df %>%
     filter(Tipo_de_Estudio == st, Fecha_de_Inicio == ymd(date), Sector == var)
-
-   dfti <- df %>%
+  condicion_nrows <- nrow(filtered_df)>0
+  if (isFALSE(condicion_nrows)){
+    stop("These filters don´t have data  in this data.frame")
+  }
+     dfti <- filtered_df %>%
     filter(Tipo_de_Estudio ==  st, Fecha_de_Inicio == ymd(date),
            Sector == var) %>%
     select(Casas_Revisadas,

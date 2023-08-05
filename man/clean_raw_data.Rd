@@ -34,10 +34,3 @@ Vector". This function aims to generate new data.frame suitable for
 further analysis and manipulation. It also saves the data from the
 data.frame to a .csv file
 }
-\examples{
-
-path <- "./data-raw/estudio_entomologico.txt"
-
-df <- load_raw_data(df)
-
-}
