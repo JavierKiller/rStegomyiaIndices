@@ -36,7 +36,7 @@ get_stegomyia_indices_by_type_of_study_star_date_and_geo <- function(
     filter(Tipo_de_Estudio == st, Fecha_de_Inicio == ymd(date), Sector == var)
   condicion_nrows <- nrow(filtered_df)>0
   if (isFALSE(condicion_nrows)){
-    stop("These filters don´t have data  in this data.frame")
+    stop("These filters don´t have data in this data.frame")
   }
      dfti <- filtered_df %>%
     filter(Tipo_de_Estudio ==  st, Fecha_de_Inicio == ymd(date),
@@ -46,10 +46,10 @@ get_stegomyia_indices_by_type_of_study_star_date_and_geo <- function(
            Total_de_Recipientes_con_Agua,
            Total_de_Recipientes_Positivos) %>%
     summarize(
-      ICP = sum(Casas_Positivas)/ sum(Casas_Revisadas)*100,
-      IRP = sum(Total_de_Recipientes_Positivos)/
+      HI = sum(Casas_Positivas)/ sum(Casas_Revisadas)*100,
+      CI = sum(Total_de_Recipientes_Positivos)/
         sum(Total_de_Recipientes_con_Agua)*100,
-      IB = sum(Total_de_Recipientes_Positivos)/ sum(Casas_Revisadas)*100
+      BI = sum(Total_de_Recipientes_Positivos)/ sum(Casas_Revisadas)*100
     )%>%
     ungroup()
   return(dfti)

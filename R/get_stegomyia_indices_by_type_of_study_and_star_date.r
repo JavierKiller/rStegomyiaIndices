@@ -1,9 +1,7 @@
 #'  Get stegomyia indices by type of study and star date
-#'
 #'  @description
 #'  The Stegomyia indices are calculated for each sampling select study type
 #'  and date using the following formulas:
-#'
 #'  * `Container Index(CI)`: number of infected containers × 100/total number
 #'     of containers
 #'  * `House Index (HI)`: number of infected houses × 100/total number of
@@ -23,13 +21,18 @@
 #'  df<-get_stegomyia_indices_by_type_of_study_and_star_date(df, st = "Verificacion",
 #'  date = "2021/01/06" )
 #'
-
 get_stegomyia_indices_by_type_of_study_and_star_date <- function(
-    df1,
+    df,
     st = "Verificacion",
     date = "2021/01/07"
 ){
-  dfti <- df1 %>%
+  dfd <- df %>%
+    filter(Tipo_de_Estudio ==  st, Fecha_de_Inicio == ymd(date))
+  condicion_nrows <- nrow(dfd)>0
+  if (isFALSE(condicion_nrows)){
+    stop("These filters don´t have data in this data.frame")
+  }
+  dfti <- dfd %>%
     filter(Tipo_de_Estudio ==  st, Fecha_de_Inicio == ymd(date)) %>%
     select(Casas_Revisadas,
            Casas_Positivas,
