@@ -29,10 +29,10 @@ get_stegomyia_indices_by_type_of_study_star_date_and_geo(
  @param `df` the dataframe with information
  @param `st` The type of study selected. By default, it is set to
    "Verificacion"
- @param `var` The geographic variable used to calculate the stegomyia
-   indices
  @param `date` The date used to calculate the stegomyia indices. By default,
   it is set to "2021/01/07".
+ @param `var` The geographic variable used to calculate the stegomyia
+   indices
  @return
  The dataframe with stegomyia indices of the selection of type of study and
    geographic variable.
