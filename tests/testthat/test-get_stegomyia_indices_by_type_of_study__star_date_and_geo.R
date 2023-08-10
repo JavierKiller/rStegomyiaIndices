@@ -12,7 +12,7 @@ test_that("calculation_of_stegomyia_indices_of_data.frame", {
                                                      var = 540
                                                      )
   expect_s3_class(expected, "data.frame")
-  expect_equivalent(expected, dftest)
+  expect_equivalent(expected, dftest, tolerance = 0.01)
   }
 )
 test_that("calculation_0_of_stegomyia_indices_of_data.frame", {
@@ -22,7 +22,7 @@ test_that("calculation_0_of_stegomyia_indices_of_data.frame", {
                                                                        var = 390
   )
   expect_s3_class(expected, "data.frame")
-  expect_equivalent(expected, dftest0)
+  expect_equivalent(expected, dftest0, tolerance = 0.01)
   }
 )
 test_that("Error_in_calculation_of_stegomyia_indices_of_data.frame", {

@@ -1,13 +1,17 @@
 #'  Get stegomyia indices by type of study and star date
+#'
 #'  @description
-#'  The Stegomyia indices are calculated for each sampling select study type
-#'  and date using the following formulas:
+#'  The Stegomyia indices are calculated for each sampling. Once the data have
+#'  been loaded with function "load_rwa_data" and changed type data of function
+#'  "clean_raw_data", select study type and date variable using the following
+#'  formulas:
 #'  * `Container Index(CI)`: number of infected containers × 100/total number
 #'     of containers
 #'  * `House Index (HI)`: number of infected houses × 100/total number of
 #'     houses
 #'  * `Breteau Index (BI)`: number of positive containers/number of houses
 #'     explored × 100
+#'
 #'  @param `df` the dataframe with information
 #'  @param `st` The type of study selected. By default, it is set to
 #'    "Verificacion"

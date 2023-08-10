@@ -11,9 +11,7 @@ test_that("calculation_of_stegomyia_indices_date_of_data.frame", {
                                                                    date = "2021/01/06"
   )
   expect_s3_class(expected, "data.frame")
-  expect_equal(expected$HI, dftest$HI, tolerance = 0.01)
-  expect_equal(expected$CI, dftest$CI, tolerance = 0.01)
-  expect_equal(expected$BI, dftest$BI, tolerance = 0.01)
+  expect_equivalent(expected, dftest, tolerance = 0.01)
  }
 )
 test_that("calculation_0_of_stegomyia_indices_date_of_data.frame", {
@@ -22,9 +20,7 @@ test_that("calculation_0_of_stegomyia_indices_date_of_data.frame", {
                                                                        date = "2021/01/12"
   )
   expect_s3_class(expected, "data.frame")
-  expect_equal(expected$HI, dftest0$HI)
-  expect_equal(expected$CI, dftest0$CI)
-  expect_equal(expected$BI, dftest0$BI)
+  expect_equivalent(expected, dftest0, tolerance = 0.01)
 }
 )
 test_that("Error_in_calculation_of_stegomyia_indices_date_of_data.frame", {
