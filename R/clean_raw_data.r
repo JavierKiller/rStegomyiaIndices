@@ -18,6 +18,7 @@
 #'
 #' @examples
 #'
+
 clean_raw_data <- function(
     df,
     path_out = "~/CursoQR/Package1/rStegomyiaIndices/data-raw/qr.csv",
