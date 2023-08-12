@@ -3,28 +3,30 @@
 #' The Stegomyia indices are calculated for each sampling. Once the data have
 #' been loaded with function "load_rwa_data" and changed type data of function
 #' "clean_raw_data", select study type, date and geographic variable using the
-#' following formulas:
-#' * `Container Index(CI)`: (number of infected containers /total number of
-#' containers) * 100.
-#' * `House Index (HI)`: (number of infected houses /total number of houses)
-#' * 100.
-#' * `Breteau Index (BI)`: (number of positive containers/number of houses
-#' explored) * 100.
+#' following
+#'  formulas:
+#'       - Container Index(CI): (number of infected containers/total number of
+#'       containers) * 100.
+#'       - House Index (HI): (number of infected houses /total number of
+#'       houses) * 100.
+#'       - Breteau Index (BI): (number of positive containers/number of houses
+#'       explored) * 100.
 #'
-#' @param `df` the dataframe with information.
-#' @param `st` The type of study selected. By default, it is set to
+#' @param df the dataframe with information.
+#' @param st The type of study selected. By default, it is set to
 #' "Verificacion".
-#' @param `date` The date used to calculate the stegomyia indices. By default,
+#' @param date The date used to calculate the stegomyia indices. By default,
 #' it is set to "2021/01/07".
-#' @param `var` The geographic variable used to calculate the stegomyia indices.
+#' @param var The geographic variable used to calculate the stegomyia indices.
 #'
 #' @return
+#'
 #' The dataframe with stegomyia indices of the selection of type of study and
 #' geographic variable.
 #'
 #' @examples
 #' get_stegomyia_indices_by_type_of_study__star_date_and_geo(df, "Encuesta",
-#'  "2021/01/07,  "390")
+#' "2021/01/07, var = "390")
 #'
 #'  @export
 

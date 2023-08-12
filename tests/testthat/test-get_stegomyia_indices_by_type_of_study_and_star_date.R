@@ -3,7 +3,7 @@ path_data_file_namet <- "/data-raw/qrt.csv"
 path_datat <- paste(path_data_prefix, path_data_file_namet, sep = "")
 df <- read_csv(path_datat)
 # Make DataFrame
-dftest <- data.frame(HI = 8.510638, CI = 3.658537, BI = 9.574468)
+dftest <- data.frame(HI = (24/282*100), CI = (27/738*100), BI = (27/282*100))
 dftest0 <- data.frame(HI = 0, CI = 0, BI = 0)
 test_that("calculation_of_stegomyia_indices_date_of_data.frame", {
   expected <- get_stegomyia_indices_by_type_of_study_and_star_date(df = df,

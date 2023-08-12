@@ -9,11 +9,13 @@
 #' further analysis and manipulation. It also saves the data from the
 #' data.frame to a .csv file
 #'
-#' @param `df` a data.frame with raw data path
-#' @param `path_out` path for that cleaned data
-#' @param `col_name` select variables
+#' @param df a data.frame with raw data path
+#' @param path_out path for that cleaned data
+#' @param col_name select variables
 #'
-#' @return Data.frame A .csv file with selected and cleaned data
+#' @return
+#'
+#' Data.frame A .csv file with selected and cleaned data
 #' @export
 #'
 #' @examples

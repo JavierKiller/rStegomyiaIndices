@@ -10,10 +10,12 @@
 #' the original one. the names of the new columns will be the key number of
 #' the variable and the other with the name of the variable.
 #'
-#' @param `path` a string with raw data path
-#' @param `col_name` names of variables,
-#',
-#' @return A data frame with selected and format in variable data
+#' @param  path a string with raw data path
+#' @param col_name names of variables
+#'
+#'
+#' @return
+#' A data frame with selected and format in variable data
 #' @export
 #'
 #' @examples

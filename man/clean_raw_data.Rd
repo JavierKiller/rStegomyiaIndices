@@ -16,11 +16,11 @@ clean_raw_data(
 )
 }
 \arguments{
-\item{`df`}{a data.frame with raw data path}
+\item{df}{a data.frame with raw data path}
 
-\item{`path_out`}{path for that cleaned data}
+\item{path_out}{path for that cleaned data}
 
-\item{`col_name`}{select variables}
+\item{col_name}{select variables}
 }
 \value{
 Data.frame A .csv file with selected and cleaned data

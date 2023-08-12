@@ -12,10 +12,9 @@ load_raw_data(
 )
 }
 \arguments{
-\item{`path`}{a string with raw data path}
+\item{path}{a string with raw data path}
 
-\item{`col_name`}{names of variables,
-,}
+\item{col_name}{names of variables}
 }
 \value{
 A data frame with selected and format in variable data
