@@ -1,0 +1,187 @@
+## Diccionario de variables de la base de datos CSV
+
+dfdir <-read_csv("~/CursoQR/Package1/diccionario_estudio_entomologico.csv")
+print(head(dfdir,20))
+
+
+path_data_prefix <- "~/CursoQR/Package1/rStegomyiaIndices/rStegomyiaIndices"
+path_data_file_name <- "/data-raw/qr.csv"
+path_data <- paste(path_data_prefix, path_data_file_name, sep = "")
+
+df <- read_csv(path_data)
+
+df_ <- clean_raw_data(df)
+
+path_data_prefix <- "~/CursoQR/Package1/rStegomyiaIndices/rStegomyiaIndices"
+path_data_file_name <- "/data-raw/qr.csv"
+path_data <- paste(path_data_prefix, path_data_file_name, sep = "")
+#path <- "~/CursoQR/Package1/rStegomyiaIndices/rStegomyiaIndices/data/qr_for_test.csv"
+df <- read.csv(path_data)
+test_that("assess_clean_raw_data", {
+  expected <- clean_raw_data(df)
+  expect_s3_class(expected, "data.frame")
+  expect_equal(dim(expected), c(20, 12))
+  # TODO probar tipos de datos  de colt ####
+  #TODO porbar tipos de datos de subconjuntos de colt ####
+  #TODO probar archivos de salida .csv para colt ####
+  #TODO probar archivos de salida .csv para subconjunto de colt ####
+})
+importFrom(tidyverse)
+importFrom(lazyeval)
+importFrom(lubridate)
+importFrom(rlang)
+importFrom(dplyr)
+importFrom(ggplot2)
+importFrom(readr)
+
+"tidyverse",
+"lazyeval",
+"lubridate",
+"rlang",
+"dplyr",
+"ggplot2",
+"readr"
+
+tidyverse,
+lazyeval,
+lubridate,
+rlang,
+dplyr,
+ggplot2,
+readr
+
+= list(
+  Tipo_de_Estudio = col_factor(c("Encuesta", "Verificacion")),
+  Clave_Jurisdiccion = "f",
+  Jurisdiccion = "f",
+  Clave_Localidad = "f",
+  Localidad = "f",
+  Sector = "f",
+  Fecha_de_Inicio = col_date(format = "%d/%m/%Y"),
+  Semana_Epidemiologica = "f",
+  Casas_Revisadas = "d",
+  Casas_Positivas = "d",
+  Total_de_Recipientes_con_Agua = "d",
+  Total_de_Recipientes_Positivos = "d"
+)
+
+df1 <- read_csv("./data/qr_for_test.csv")
+
+show_col_types = TRUE
+dft_ <- get_stegomyia_indices_by_type_of_study_star_date_and_geo(df = df, st = "Verificacion",
+                                            date = "2021/01/06", var = 540)
+print(dft_)
+
+icp <-9/75*100
+irp <- 9/168*100
+ib 9/168*100
+#ICP      IRP      IB
+#  12    5.357143  12
+
+col_namef = c(
+  "Tipo de Estudio",
+  "Jurisdiccion",
+  "Municipio",
+  "Localidad",
+  "Sector",
+  "Fecha de Inicio",
+  "Semana Epidemiologica",
+  "Casas Revisadas",
+  "Casas Positivas",
+  "Total de Recipientes con Agua",
+  "Total de Recipientes Positivos",
+  "Total de Recipientes Positivos a Pupas",
+  "No. Total de Pupas en Recipientes",
+  "Recipientes Tratables",
+  "Recipientes Controlables",
+  "Recipientes Eliminables"
+)
+
+
+sd <- read_tsv(path_raw_data,locale = locale(encoding = "UTF-16" ))
+str(sd)
+df_full <- load_raw_data(path_raw_data, col_namef)
+write_csv(df_full, "~/CursoQR/Package1/rStegomyiaIndices/data-raw/qr_full.csv")
+
+col_namelew = c(
+  "Tipo de Estudio",
+  "Fecha de Inicio",
+  "Semana Epidemiologica",
+  "Casas Revisadas",
+  "Casas Positivas",
+  "Total de Recipientes con Agua" ,
+  "Total de Recipientes Positivos"
+ )
+
+df_lew <- load_raw_data(path_raw_data, col_namelew)
+write_csv(df_lew, "~/CursoQR/Package1/rStegomyiaIndices/data-raw/qr_lew.csv")
+
+
+get_stegomyia_indices_by_type_of_study_star_date_and_geo(path_datat)
+#test funcionn
+dft_<-get_breteau_idx_by_te_star_date(df1, te = "Verificacion",
+                                      fecha = "2021/01/06" )
+dft_
+
+#dft_<- get_breteau_idx_by_te_geo(df1, te= "Encuesta", var="Sector")
+
+print(dft_)
+
+# 8.510638 3.658537 9.574468
+# 8.510638 3.658537 9.574468
+
+dfg <-get_stegomyia_indices_by_type_of_study_and_geo(df, st = "Verificacion", var = "401")
+dfg
+
+
+hi<- (24/282)*100
+ci<- (27/738)*100
+bi<- (27/282)*100
+hi
+ci
+bi
+
+
+
+## Diccionario de variables de la base de datos CSV
+
+dfdir <-read_csv("~/CursoQR/Package1/diccionario_estudio_entomologico.csv")
+print(head(dfdir,20))
+
+usethis::use_data(dfdir)
+# Características principales de la base de datos:
+#
+# - Contiene 121 variables diferentes.
+# - Datos creados con la misma estructura y tipo de datos.
+# -
+# - Etc.
+
+get_stegomyia_indices_by_type_of_study_and_geo <- function( df,
+                                                            st ="Verificacion",
+                                                            var){
+
+  # condicion_var <- var %in% colnames(df)
+  # if (isFALSE(condicion_var)){
+  #    stop("The var selection is incorre")
+  # }
+  # dfd <- df %>%
+  #    filter(Tipo_de_Estudio == st, !!sym(var))
+  # if (nrow(dfd) == 0){
+  #    stop("These filters don´t have data in this data.frame")
+  # }
+  dfti <- df %>%
+    filter(Tipo_de_Estudio ==  st) %>%
+    group_by( !!sym(var)) %>%
+    select(var, Casas_Revisadas,
+           Casas_Positivas,
+           Total_de_Recipientes_con_Agua,
+           Total_de_Recipientes_Positivos) %>%
+    summarize(HI = sum(Casas_Positivas)/ sum(Casas_Revisadas)*100,
+              CI = sum(Total_de_Recipientes_Positivos)/
+                sum(Total_de_Recipientes_con_Agua)*100,
+              BI = sum(Total_de_Recipientes_Positivos)/ sum(Casas_Revisadas)*100
+    )%>%
+    ungroup()
+  return(dfti)
+
+}

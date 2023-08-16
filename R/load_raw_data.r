@@ -69,28 +69,44 @@ load_raw_data <- function(
   )
   # Eliminate spaces in the column names and replace them with underscores _
   colnames(df) <-
-    str_replace_all(colnames(df), pattern = " ", replacement = "_")
+    str_replace_all(colnames(df), pattern = " ",
+                    replacement = "_")
   # Create four new columns by separating the two variable from the original
   # columns
   if("Localidad" %in% colnames(df)){
-  df <- df %>%
-    separate(Localidad,
-             into = c("Clave_Localidad", "Localidad"),
-             sep = " "
-    )
+    df <- df %>%
+      separate(Localidad,
+               into = c("Clave_Localidad", "Localidad"),
+               sep = "\\s",
+               extra = "merge"
+      )
+    df$Localidad <-
+      str_replace_all(df$Localidad, pattern = " ",
+                      replacement = "_"
+      )
   }
   if("Municipio" %in% colnames(df)){
-  df <- df %>%
-    separate(Municipio,
-             into = c("Clave_Municipio", "Municipio"),
-             sep = " "
-    )
+    df <- df %>%
+      separate(Municipio,
+               into = c("Clave_Municipio", "Municipio"),
+               sep = "\\s",
+               extra = "merge"
+      )
+    df$Municipio <-
+      str_replace_all(df$Municipio, pattern = " ",
+                      replacement = "_"
+      )
   }
   if("Jurisdiccion" %in% colnames(df)){
     df <- df %>%
       separate(Jurisdiccion,
                into = c("Clave_Jurisdiccion", "Jurisdiccion"),
-               sep = " "
+               sep = "\\s",
+               extra = "merge"
+      )
+    df$Jurisdiccion <-
+      str_replace_all(df$Jurisdiccion, pattern = " ",
+                      replacement = "_"
       )
   }
   return(df)
