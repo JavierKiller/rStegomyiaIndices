@@ -1,5 +1,5 @@
 path_raw_data_prefix <- "~/CursoQR/Package1/rStegomyiaIndices"
-path_raw_data_file_name <- "/data-raw/estudio_entomologico.txt"
+path_raw_data_file_name <- "/data-raw/estudio_entomologico1.txt"
 path_raw_data <- paste(path_raw_data_prefix, path_raw_data_file_name, sep = "")
 prdefile_name <- "/data-raw/estudio_entomologico_equivocado.txt"
 path_raw_data_error <- paste(path_raw_data_prefix,prdefile_name, sep = "")
@@ -43,7 +43,7 @@ test_that("assess_load_raw_data",
   {
     expected <- load_raw_data(path = path_raw_data )
     expect_s3_class(expected, "data.frame")
-    expect_equal(dim(expected), c(20, 12))
+    expect_equal(dim(expected), c(42, 12))
     expect_named(expected, labels)
   }
 )
@@ -58,7 +58,7 @@ test_that(
                         "Total de Recipientes Positivos")
     expected <- load_raw_data(path = path_raw_data, col_name = col_select_sub)
     expect_s3_class(expected, "data.frame")
-    expect_equal(dim(expected), c(20, 6))
+    expect_equal(dim(expected), c(42, 6))
     expect_named(expected, labels_sub)
   }
 )

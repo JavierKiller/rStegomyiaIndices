@@ -30,6 +30,7 @@
 #'   var ="390").
 #'
 
+####TODO: actualizar con vignette####
 get_stegomyia_indices_by_type_of_study_and_geo <- function(
       df,
       st ="Verificacion",
@@ -42,6 +43,13 @@ get_stegomyia_indices_by_type_of_study_and_geo <- function(
    if (isFALSE(condicion_nrows)){
       stop("These filters don´t have data in this data.frame")
    }
+   condiction <- nrow(filtered_df %>%
+                         filter(Casas_Revisadas == 0))
+   if (condiction !=0){
+      print("Error: Casa_Revisada with 0", condiction)
+      filtered_df <- filtered_df %>%
+         filter(Casas_Revisadas != 0)
+   }
    dfti <- filtered_df %>%
       filter(Tipo_de_Estudio ==  st, Sector == var) %>%
       select(Casas_Revisadas,
@@ -50,8 +58,11 @@ get_stegomyia_indices_by_type_of_study_and_geo <- function(
              Total_de_Recipientes_Positivos) %>%
       summarize(
          HI = sum(Casas_Positivas)/ sum(Casas_Revisadas)*100,
-         CI = sum(Total_de_Recipientes_Positivos)/
-            sum(Total_de_Recipientes_con_Agua)*100,
+         CI = if(sum(Total_de_Recipientes_Positivos)>0){
+            sum(Total_de_Recipientes_Positivos)/
+               sum(Total_de_Recipientes_con_Agua)*100
+         }
+         else{0},
          BI = sum(Total_de_Recipientes_Positivos)/ sum(Casas_Revisadas)*100
       )%>%
       ungroup()

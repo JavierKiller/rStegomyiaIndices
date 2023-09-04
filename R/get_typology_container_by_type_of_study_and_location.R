@@ -1,0 +1,69 @@
+#' Positive Typology Container by type of study and location
+#'
+#' The Stegomyia indices are calculated for each sampling. Once the data have
+#' been loaded with function "load_rwa_data" and changed type data of function
+#' "clean_raw_data", select study type and geographic variable using the
+#' following
+#'    formulas:
+#'       - Container Index(CI): (number of infected containers/total number of
+#'       containers) * 100.
+#'       - House Index (HI): (number of infected houses /total number of
+#'       houses) * 100.
+#'       - Breteau Index (BI): (number of positive containers/number of houses
+#'       explored) * 100.
+#'
+#'
+#' @param df the dataframe with information.
+#' @param st The type of study selected. By default, it is set to
+#' "Verificacion".
+#' @param var The location with geographic variable used to .
+#'
+#' @return
+#'
+#' The dataframe with stegomyia indices of the selection of type of study and
+#' geographic variable.
+#'
+#' @export
+#'
+#' @examples
+#' get_typology_container_by_type_of_study_and_location(df, st = "Verificacion",
+#'   var ="CIUDAD_OBREGÓN").
+#'
+####TODO: actualizar documentation####
+trss <- function(dft,
+                 st = "Encuesta",
+                 var = c("CIUDAD_OBREGÓN","NAVOJOA"))
+{
+  dft <- df1 %>%
+    filter(Localidad %in% var,
+           Tipo_de_Estudio ==  st)
+  condiction <- nrow(df1 %>%
+                       filter(Casas_Revisadas == 0))
+  if (condiction !=0){
+    print("Error: Casa_Revisada with 0", condiction)
+    dft <- dft %>%
+      filter(Casas_Revisadas != 0)
+  }
+  dfts <- dft %>%
+    filter(Total_de_Recipientes_Positivos > 0
+    ) %>%
+    select(Tipo_de_Estudio,
+           Localidad,
+           Recipientes_Tratables,
+           Recipientes_Controlables,
+           Recipientes_Eliminables,
+           Total_de_Recipientes_Positivos) %>%
+    group_by( Localidad ) %>%
+    summarize(
+      Pct_Recipientes_Tratables =
+        sum(Recipientes_Tratables) /
+        sum(Total_de_Recipientes_Positivos) * 100,
+      Pct_Recipientes_Controlables =
+        sum(Recipientes_Controlables) /
+        sum(Total_de_Recipientes_Positivos) * 100,
+      Pct_Recipientes_Eliminables =
+        sum(Recipientes_Eliminables) /
+        sum(Total_de_Recipientes_Positivos) * 100
+    )
+  return(dfts)
+}

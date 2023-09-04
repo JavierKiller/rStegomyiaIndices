@@ -74,7 +74,7 @@ print(dft_)
 
 icp <-9/75*100
 irp <- 9/168*100
-ib 9/168*100
+ib <- 9/168*100
 #ICP      IRP      IB
 #  12    5.357143  12
 
@@ -116,6 +116,9 @@ col_namelew = c(
 df_lew <- load_raw_data(path_raw_data, col_namelew)
 write_csv(df_lew, "~/CursoQR/Package1/rStegomyiaIndices/data-raw/qr_lew.csv")
 
+
+df_ <- load_raw_data(path_raw_data)
+write_csv(df_, "~/CursoQR/Package1/rStegomyiaIndices/data-raw/qr.csv")
 
 get_stegomyia_indices_by_type_of_study_star_date_and_geo(path_datat)
 #test funcionn

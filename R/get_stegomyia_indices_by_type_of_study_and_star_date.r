@@ -39,6 +39,13 @@ get_stegomyia_indices_by_type_of_study_and_star_date <- function(
   if (nrow(dfd) == 0){
     stop("These filters don´t have data in this data.frame")
   }
+  condiction <- nrow(dfd %>%
+                       filter(Casas_Revisadas == 0))
+  if (condiction !=0){
+    print("Error: Casa_Revisada with 0", condiction)
+    dfd <- dfd %>%
+      filter(Casas_Revisadas != 0)
+  }
   dfti <- dfd %>%
     select(Casas_Revisadas,
            Casas_Positivas,
@@ -46,8 +53,12 @@ get_stegomyia_indices_by_type_of_study_and_star_date <- function(
            Total_de_Recipientes_Positivos) %>%
     summarize(
       HI = sum(Casas_Positivas)/sum(Casas_Revisadas)*100,
-      CI = sum(Total_de_Recipientes_Positivos)/sum(Total_de_Recipientes_con_Agua)*100,
-      BI = sum(Total_de_Recipientes_Positivos)/sum(Casas_Revisadas)*100
+      CI = if(sum(Total_de_Recipientes_Positivos)>0){
+        sum(Total_de_Recipientes_Positivos)/
+          sum(Total_de_Recipientes_con_Agua)*100
+      }
+      else{0},
+      BI = sum(Total_de_Recipientes_Positivos)/ sum(Casas_Revisadas)*100
     ) %>%
     ungroup()
   return(dfti)

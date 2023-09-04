@@ -33,20 +33,20 @@ test_that("assess_clean_raw_data", {
   expected <- clean_raw_data(df, path_out = path_datat)
   expect_identical(str(colt), str(expected))
   expect_s3_class(expected, "data.frame")
-  expect_equal(dim(expected), c(20, 12))
+  expect_equal(dim(expected), c(42, 12))
   }
 )
 test_that("assess_clean_raw_data_sub", {
   expected <- clean_raw_data(df_lew, path_out = path_data_lewt)
   expect_identical(str(colt), str(expected))
   expect_s3_class(expected, "data.frame")
-  expect_equal(dim(expected), c(20, 7))
+  expect_equal(dim(expected), c(42, 7))
   }
 )
 test_that("assess_clean_raw_data_extra", {
   expected <- clean_raw_data(df_full, path_out = path_data_fullt)
   expect_identical(str(colt), str(expected))
   expect_s3_class(expected, "data.frame")
-  expect_equal(dim(expected), c(20, 19))
+  expect_equal(dim(expected), c(42, 19))
   }
 )
