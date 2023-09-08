@@ -20,7 +20,7 @@
 #'
 #' @return
 #'
-#' The dataframe with stegomyia indices of the selection of type of study and
+#' The dataframe with ######### of the selection of type of study and
 #' geographic variable.
 #'
 #' @export
@@ -30,17 +30,18 @@
 #'   var ="CIUDAD_OBREGÓN").
 #'
 ####TODO: actualizar documentation####
-trss <- function(dft,
-                 st = "Encuesta",
-                 var = c("CIUDAD_OBREGÓN","NAVOJOA"))
+get_typology_container_by_type_of_study_and_location <- function(df,
+                 st = "Verificacion",
+                 var = c("CIUDAD_OBREGÓN","HERMOSILLO"))
 {
-  dft <- df1 %>%
+  dft <- df %>%
     filter(Localidad %in% var,
-           Tipo_de_Estudio ==  st)
-  condiction <- nrow(df1 %>%
+           Tipo_de_Estudio %in%  st)
+  condiction <- nrow(df %>%
                        filter(Casas_Revisadas == 0))
   if (condiction !=0){
-    print("Error: Casa_Revisada with 0", condiction)
+    warning("Casa_Revisada with 0")
+    #print(condiction)
     dft <- dft %>%
       filter(Casas_Revisadas != 0)
   }
@@ -67,3 +68,10 @@ trss <- function(dft,
     )
   return(dfts)
 }
+
+
+# df0 <- get_typology_container_by_type_of_study_and_location(df = df,
+#                                                      st = "Encuesta",
+#                                                      var = c("HERMOSILLO","NAVOJOA", "CIUDAD_OBREGÓN")
+# )
+# df0

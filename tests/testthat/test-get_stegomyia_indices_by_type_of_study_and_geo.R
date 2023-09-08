@@ -31,3 +31,11 @@ test_that("Error_in_calculation_of_stegomyia_indices_by_type_of_study_and_geo_of
   "These filters don´t have data in this data.frame")
 }
 )
+test_that("Error_in_calculation_of_typology_container_of_0_Casa_Revisada", {
+  expect_warning(get_stegomyia_indices_by_type_of_study_star_date_and_geo(df = df,
+                                                                      st = "Verificacion",
+                                                                      var = "1248"
+  ),
+  "Casa_Revisada with 0")
+}
+)

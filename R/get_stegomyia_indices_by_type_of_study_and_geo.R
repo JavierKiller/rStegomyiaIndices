@@ -46,7 +46,7 @@ get_stegomyia_indices_by_type_of_study_and_geo <- function(
    condiction <- nrow(filtered_df %>%
                          filter(Casas_Revisadas == 0))
    if (condiction !=0){
-      print("Error: Casa_Revisada with 0", condiction)
+      warning("Casa_Revisada with 0")
       filtered_df <- filtered_df %>%
          filter(Casas_Revisadas != 0)
    }

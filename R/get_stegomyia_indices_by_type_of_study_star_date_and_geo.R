@@ -31,14 +31,17 @@
 #'  @export
 
 get_stegomyia_indices_by_type_of_study_star_date_and_geo <- function(
-                                                                      df,
-                                                                      st ="Verificacion",
-                                                                      date = "2021/01/07",
-                                                                      var
-                                                                      )
+    df,
+    st ="Verificacion",
+    date = "2021/01/07",
+    var
+)
 {
+  df$Fecha_de_Inicio <- as.Date(date, format = "%Y/%m/%d")
   filtered_df <- df %>%
-    filter(Tipo_de_Estudio == st, Fecha_de_Inicio == ymd(date), Sector == var)
+    filter(Tipo_de_Estudio == st,
+           Fecha_de_Inicio == ymd(date),
+           Sector == var)
   condicion_nrows <- nrow(filtered_df)>0
   if (isFALSE(condicion_nrows)){
     stop("These filters don´t have data in this data.frame")
@@ -46,12 +49,14 @@ get_stegomyia_indices_by_type_of_study_star_date_and_geo <- function(
   condiction <- nrow(filtered_df %>%
                        filter(Casas_Revisadas == 0))
   if (condiction !=0){
-    print("Error: Casa_Revisada with 0", condiction)
+    warning("Casa_Revisada with 0")
+    #print(condiction)
     filtered_df <- filtered_df %>%
       filter(Casas_Revisadas != 0)
   }
-     dfti <- filtered_df %>%
-    filter(Tipo_de_Estudio ==  st, Fecha_de_Inicio == ymd(date),
+  dfti <- filtered_df %>%
+    filter(Tipo_de_Estudio ==  st,
+           Fecha_de_Inicio == ymd(date),
            Sector == var) %>%
     select(Casas_Revisadas,
            Casas_Positivas,
