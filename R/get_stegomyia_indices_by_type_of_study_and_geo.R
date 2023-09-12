@@ -38,11 +38,7 @@ get_stegomyia_indices_by_type_of_study_and_geo <- function(
 )
 {
    filtered_df <- df %>%
-      filter(Tipo_de_Estudio == st, Sector == var)
-   condicion_nrows <- nrow(filtered_df)>0
-   if (isFALSE(condicion_nrows)){
-      stop("These filters don´t have data in this data.frame")
-   }
+      filter(Tipo_de_Estudio == st, Sector %in% var)
    condiction <- nrow(filtered_df %>%
                          filter(Casas_Revisadas == 0))
    if (condiction !=0){
@@ -50,8 +46,12 @@ get_stegomyia_indices_by_type_of_study_and_geo <- function(
       filtered_df <- filtered_df %>%
          filter(Casas_Revisadas != 0)
    }
-   dfti <- filtered_df %>%
-      filter(Tipo_de_Estudio ==  st, Sector == var) %>%
+   condicion_nrows <- nrow(filtered_df)>0
+   if (isFALSE(condicion_nrows)){
+      stop("These filters don´t have data in this data.frame")
+   }
+      dfti <- filtered_df %>%
+      filter(Tipo_de_Estudio ==  st, Sector %in% var) %>%
       select(Casas_Revisadas,
              Casas_Positivas,
              Total_de_Recipientes_con_Agua,
@@ -68,3 +68,4 @@ get_stegomyia_indices_by_type_of_study_and_geo <- function(
       ungroup()
    return(dfti)
 }
+

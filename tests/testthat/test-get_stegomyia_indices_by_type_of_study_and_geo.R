@@ -1,7 +1,9 @@
 path_data_prefix <- "~/CursoQR/Package1/rStegomyiaIndices"
 path_data_file_namet <- "/data-raw/qrt.csv"
 path_datat <- paste(path_data_prefix, path_data_file_namet, sep = "")
-df <- read_csv(path_datat)
+df0 <- read_csv(path_datat)
+df <- clean_raw_data(df0,path_out = path_datat)
+var0 <- c("1248","401")
 # Make DataFrame
 dftest <- data.frame(HI = (3/66*100), CI = (3/156*100), BI = (3/66*100))
 dftest0 <- data.frame(HI = 0, CI = 0, BI = 0)
@@ -26,7 +28,7 @@ test_that("calculation_of_stegomyia_indices_0_by_type_of_study_and_geo_of_data.f
 test_that("Error_in_calculation_of_stegomyia_indices_by_type_of_study_and_geo_of_data.frame", {
   expect_error(get_stegomyia_indices_by_type_of_study_star_date_and_geo(df = df,
                                                                         st = "Verificacion",
-                                                                        var = 000
+                                                                        var = "1248"
   ),
   "These filters don´t have data in this data.frame")
 }
@@ -34,7 +36,7 @@ test_that("Error_in_calculation_of_stegomyia_indices_by_type_of_study_and_geo_of
 test_that("Error_in_calculation_of_typology_container_of_0_Casa_Revisada", {
   expect_warning(get_stegomyia_indices_by_type_of_study_star_date_and_geo(df = df,
                                                                       st = "Verificacion",
-                                                                      var = "1248"
+                                                                      var = var0
   ),
   "Casa_Revisada with 0")
 }

@@ -13,7 +13,7 @@ path_data_lewt <- paste(path_data_prefix, path_data_file_name_lewt, sep = "")
 path_data_fullt <- paste(path_data_prefix, path_data_file_name_fullt, sep = "")
 #path_data <- "../../data-raw/qr.csv"
 df <- read.csv(path_data)
-df_lew <- read.csv(path_data_lew)
+df_lew <- read_csv(path_data_lew)
 df_full <- read.csv(path_data_full)
 colt= list(
   Tipo_de_Estudio = col_factor(c("Encuesta", "Verificacion")),

@@ -1,17 +1,5 @@
 #' Positive Typology Container by type of study and location
 #'
-#' The Stegomyia indices are calculated for each sampling. Once the data have
-#' been loaded with function "load_rwa_data" and changed type data of function
-#' "clean_raw_data", select study type and geographic variable using the
-#' following
-#'    formulas:
-#'       - Container Index(CI): (number of infected containers/total number of
-#'       containers) * 100.
-#'       - House Index (HI): (number of infected houses /total number of
-#'       houses) * 100.
-#'       - Breteau Index (BI): (number of positive containers/number of houses
-#'       explored) * 100.
-#'
 #'
 #' @param df the dataframe with information.
 #' @param st The type of study selected. By default, it is set to

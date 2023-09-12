@@ -198,3 +198,9 @@ f <- function(x) {
   }
   -x
 }
+
+x <- factor(c("single", "married", "married", "single"))
+print(x)
+
+x <- factor(c("single", "married", "married", "single"), levels = c("single", "married", "divorced"))
+print(x)

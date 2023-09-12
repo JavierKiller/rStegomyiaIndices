@@ -53,33 +53,25 @@
 #     ungroup()
 #   return(dfti)
 # }
-
 get_stegomyia_indices_by_type_of_study_and_star_date <- function(
     df,
     st = "Verificacion",
     date = "2021/01/07"
 ){
-  df$Fecha_de_Inicio <- as.Date(date, format = "%Y/%m/%d")
-  filtered_df <- df %>%
-    filter(Tipo_de_Estudio == st,
-           Fecha_de_Inicio == ymd(date)
-           )
-  condicion_nrows <- nrow(filtered_df)>0
-  if (isFALSE(condicion_nrows)){
+  df$Fecha_de_Inicio <- as.Date(df$Fecha_de_Inicio, format = "%d/%m/%Y")
+  dfd <- df %>%
+    filter(Tipo_de_Estudio %in% st, Fecha_de_Inicio %in% ymd(date))
+  if (nrow(dfd) == 0){
     stop("These filters don´t have data in this data.frame")
   }
-  condiction <- nrow(filtered_df %>%
+  condiction <- nrow(dfd %>%
                        filter(Casas_Revisadas == 0))
   if (condiction !=0){
     warning("Casa_Revisada with 0")
-    #print(condiction)
-    filtered_df <- filtered_df %>%
-      filter(Casas_Revisadas != 0)
+    dfd <- dfd %>%
+      filter(Casas_Revisadas > 0)
   }
-  dfti <- filtered_df %>%
-    filter(Tipo_de_Estudio ==  st,
-           Fecha_de_Inicio == ymd(date)
-           ) %>%
+  dfti <- dfd %>%
     select(Casas_Revisadas,
            Casas_Positivas,
            Total_de_Recipientes_con_Agua,

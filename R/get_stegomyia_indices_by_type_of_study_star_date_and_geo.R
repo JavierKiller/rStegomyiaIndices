@@ -37,7 +37,7 @@ get_stegomyia_indices_by_type_of_study_star_date_and_geo <- function(
     var
 )
 {
-  df$Fecha_de_Inicio <- as.Date(date, format = "%Y/%m/%d")
+  df$Fecha_de_Inicio <- as.Date(df$Fecha_de_Inicio, format = "%d/%m/%Y")
   filtered_df <- df %>%
     filter(Tipo_de_Estudio == st,
            Fecha_de_Inicio == ymd(date),
