@@ -1,30 +1,30 @@
-path_raw_data_prefix <- "~/CursoQR/Package1/rStegomyiaIndices"
-path_raw_data_file_name <- "/data-raw/estudio_entomologico1.txt"
-path_raw_data <- paste(path_raw_data_prefix, path_raw_data_file_name, sep = "")
-prdefile_name <- "/data-raw/estudio_entomologico_equivocado.txt"
-path_raw_data_error <- paste(path_raw_data_prefix,prdefile_name, sep = "")
-prdemfile_name <- "/data-raw/estudio_entomologico_sin_datos.txt"
-path_raw_data_empty <- paste(path_raw_data_prefix,prdemfile_name, sep = "")
-labels <- c(
-  "Tipo_de_Estudio",
-  "Clave_Jurisdiccion",
-  "Jurisdiccion",
-  "Clave_Localidad",
-  "Localidad",
-  "Sector",
-  "Fecha_de_Inicio",
-  "Semana_Epidemiologica",
-  "Casas_Revisadas",
-  "Casas_Positivas",
-  "Total_de_Recipientes_con_Agua",
-  "Total_de_Recipientes_Positivos")
-labels_sub <- c(
-  "Tipo_de_Estudio",
-  "Semana_Epidemiologica",
-  "Casas_Revisadas",
-  "Casas_Positivas",
-  "Total_de_Recipientes_con_Agua",
-  "Total_de_Recipientes_Positivos")
+# path_raw_data_prefix <- "~/CursoQR/Package1/rStegomyiaIndices"
+# path_raw_data_file_name <- "/data-raw/estudio_entomologico1.txt"
+# path_raw_data <- paste(path_raw_data_prefix, path_raw_data_file_name, sep = "")
+# prdefile_name <- "/data-raw/estudio_entomologico_equivocado.txt"
+# path_raw_data_error <- paste(path_raw_data_prefix,prdefile_name, sep = "")
+# prdemfile_name <- "/data-raw/estudio_entomologico_sin_datos.txt"
+# path_raw_data_empty <- paste(path_raw_data_prefix,prdemfile_name, sep = "")
+# labels <- c(
+#   "Tipo_de_Estudio",
+#   "Clave_Jurisdiccion",
+#   "Jurisdiccion",
+#   "Clave_Localidad",
+#   "Localidad",
+#   "Sector",
+#   "Fecha_de_Inicio",
+#   "Semana_Epidemiologica",
+#   "Casas_Revisadas",
+#   "Casas_Positivas",
+#   "Total_de_Recipientes_con_Agua",
+#   "Total_de_Recipientes_Positivos")
+# labels_sub <- c(
+#   "Tipo_de_Estudio",
+#   "Semana_Epidemiologica",
+#   "Casas_Revisadas",
+#   "Casas_Positivas",
+#   "Total_de_Recipientes_con_Agua",
+#   "Total_de_Recipientes_Positivos")
 test_that(
   "assess_load_raw_data_error_Tipo_de_Estudio",
   {
