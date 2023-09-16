@@ -24,35 +24,32 @@
 clean_raw_data <- function(
     df,
     path_out = "~/CursoQR/Package1/rStegomyiaIndices/data-raw/qr.csv",
-    col_name = list(
-      Tipo_de_Estudio = factor(c("Encuesta", "Verificacion")),
-      Clave_Jurisdiccion = factor(c(1:6)),
-      Jurisdiccion = factor(c("Hermosillo",
-                                  "Caborca",
-                                  "Cananea",
-                                  "Cajeme",
-                                  "Navojoa",
-                                  "San_Luis_Río_Colorado")),
-      Clave_Municipio =  factor(c(1:72)),
-      Municipio = "f",
-      Clave_Localidad = "f",
-      Localidad = "f",
-      Sector = factor(c(1:2000)),
+    col_name = cols(
+      Tipo_de_Estudio = col_factor(levels = c("Encuesta", "Verificacion")),
+      Clave_Jurisdiccion = col_factor(levels = as.character(c(2601, 2602, 2603, 2604, 2605, 2606))),
+      Jurisdiccion = col_factor(levels = c(
+        "Hermosillo", "Caborca", "Cananea", "Cajeme", "Navojoa", "San_Luis_Río_Colorado"
+      )),
+      Clave_Municipio = col_factor(levels = as.character(1:72)),
+      Municipio = col_factor(),
+      Clave_Localidad = col_factor(),
+      Localidad = col_factor(),
+      Sector = col_factor(levels = as.character(1:2000)),
       Fecha_de_Inicio = col_date(format = "%d/%m/%Y"),
-      Semana_Epidemiologica = factor(c(1:53)),
-      Casas_Revisadas = "d",
-      Casas_Positivas = "d",
-      Total_de_Recipientes_con_Agua = "d",
-      Total_de_Recipientes_Positivos = "d"
+      Semana_Epidemiologica = col_factor(levels = as.character(1:53)),
+      Casas_Revisadas = col_double(),
+      Casas_Positivas = col_double(),
+      Total_de_Recipientes_con_Agua = col_double(),
+      Total_de_Recipientes_Positivos = col_double()
     )
 ){
   write_csv(df, path_out)
 
   df_aux <- read_csv(
     path_out,
-    col_types = col_name,
+    col_types = col_name
   )
   df <- df_aux
   write_csv(df, path_out)
   return(df)
-  }
+}

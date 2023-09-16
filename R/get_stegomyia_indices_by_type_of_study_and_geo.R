@@ -33,39 +33,33 @@
 ####TODO: actualizar con vignette####
 get_stegomyia_indices_by_type_of_study_and_geo <- function(
       df,
-      st ="Verificacion",
+      st = "Verificacion",
       var
-)
-{
+) {
    filtered_df <- df %>%
       filter(Tipo_de_Estudio == st, Sector %in% var)
-   condiction <- nrow(filtered_df %>%
-                         filter(Casas_Revisadas == 0))
-   if (condiction !=0){
+
+   if (nrow(filtered_df) == 0) {
+      stop("These filters don't have data in this data.frame")
+   }
+   if (any(filtered_df$Casas_Revisadas == 0)) {
       warning("Casa_Revisada with 0")
       filtered_df <- filtered_df %>%
          filter(Casas_Revisadas != 0)
    }
-   condicion_nrows <- nrow(filtered_df)>0
-   if (isFALSE(condicion_nrows)){
-      stop("These filters don´t have data in this data.frame")
-   }
-      dfti <- filtered_df %>%
-      filter(Tipo_de_Estudio ==  st, Sector %in% var) %>%
-      select(Casas_Revisadas,
-             Casas_Positivas,
-             Total_de_Recipientes_con_Agua,
-             Total_de_Recipientes_Positivos) %>%
+
+   dfti <- filtered_df %>%
+      select(Casas_Revisadas, Casas_Positivas, Total_de_Recipientes_con_Agua, Total_de_Recipientes_Positivos) %>%
       summarize(
-         HI = sum(Casas_Positivas)/ sum(Casas_Revisadas)*100,
-         CI = if(sum(Total_de_Recipientes_Positivos)>0){
-            sum(Total_de_Recipientes_Positivos)/
-               sum(Total_de_Recipientes_con_Agua)*100
-         }
-         else{0},
-         BI = sum(Total_de_Recipientes_Positivos)/ sum(Casas_Revisadas)*100
-      )%>%
+         HI = sum(Casas_Positivas) / sum(Casas_Revisadas) * 100,
+         CI = if (sum(Total_de_Recipientes_Positivos) > 0) {
+            sum(Total_de_Recipientes_Positivos) / sum(Total_de_Recipientes_con_Agua) * 100
+         } else {
+            0
+         },
+         BI = sum(Total_de_Recipientes_Positivos) / sum(Casas_Revisadas) * 100
+      ) %>%
       ungroup()
+
    return(dfti)
 }
-

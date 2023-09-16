@@ -50,19 +50,28 @@ dplyr,
 ggplot2,
 readr
 
-= list(
-  Tipo_de_Estudio = col_factor(c("Encuesta", "Verificacion")),
-  Clave_Jurisdiccion = "f",
-  Jurisdiccion = "f",
-  Clave_Localidad = "f",
-  Localidad = "f",
-  Sector = "f",
+col_namef = cols(
+  Tipo_de_Estudio = col_factor(levels = c("Encuesta", "Verificacion")),
+  Clave_Jurisdiccion = col_factor(levels = as.character(c(2601, 2602, 2603, 2604, 2605, 2606))),
+  Jurisdiccion = col_factor(levels = c(
+    "Hermosillo", "Caborca", "Cananea", "Cajeme", "Navojoa", "San_Luis_Río_Colorado"
+  )),
+  Clave_Municipio = col_factor(levels = as.character(1:72)),
+  Municipio = col_factor(),
+  Clave_Localidad = col_factor(),
+  Localidad = col_factor(),
+  Sector = col_factor(levels = as.character(1:2000)),
   Fecha_de_Inicio = col_date(format = "%d/%m/%Y"),
-  Semana_Epidemiologica = "f",
-  Casas_Revisadas = "d",
-  Casas_Positivas = "d",
-  Total_de_Recipientes_con_Agua = "d",
-  Total_de_Recipientes_Positivos = "d"
+  Semana_Epidemiologica = col_factor(levels = as.character(1:53)),
+  Casas_Revisadas = col_double(),
+  Casas_Positivas = col_double(),
+  Total_de_Recipientes_con_Agua = col_double(),
+  Total_de_Recipientes_Positivos = col_double(),
+  Total_de_Recipientes_Positivos_a_Pupas= col_double(),
+  No._Total_de_Pupas_en_Recipientes = col_double(),
+  Recipientes_Tratables = col_double(),
+  Recipientes_Controlables = col_double(),
+  Recipientes_Eliminables = col_double()
 )
 
 df1 <- read_csv("./data/qr_for_test.csv")
@@ -204,3 +213,63 @@ print(x)
 
 x <- factor(c("single", "married", "married", "single"), levels = c("single", "married", "divorced"))
 print(x)
+
+
+df_fullt <- clean_raw_data(df=df_full, path_out = "~/CursoQR/Package1/rStegomyiaIndices/data-raw/qr.csv",
+                           col_name = col_namef)
+
+
+get_typology_container_by_type_of_study_and_location(df = df_fullt,
+                                                     st = "Verificacion",
+                                                     var = "HERMOSILLO")
+
+
+var0 <- c("1248", "401")
+resultado <- get_stegomyia_indices_by_type_of_study_and_geo(df = df0t, st = "Verificacion", var = var0)
+
+rdd <-get_stegomyia_indices_by_type_of_study_and_geo(df = df_fullt,
+                                                         st = "Verificacion",
+                                                         var = var0
+)
+
+
+
+
+get_stegomyia_indices_by_type_of_study_and_geo <- function(
+    df,
+    st ="Verificacion",
+    var
+)
+{
+  filtered_df <- df %>%
+    filter(Tipo_de_Estudio == st, Sector %in% var)
+  condiction <- nrow(filtered_df %>%
+                       filter(Casas_Revisadas == 0))
+
+  condicion_nrows <- nrow(filtered_df)>0
+  if (isFALSE(condicion_nrows)){
+    stop("These filters don´t have data in this data.frame")
+  }
+  if (condiction !=0){
+    warning("Casa_Revisada with 0")
+    filtered_df <- filtered_df %>%
+      filter(Casas_Revisadas != 0)
+  }
+  dfti <- filtered_df %>%
+    filter(Tipo_de_Estudio ==  st, Sector %in% var) %>%
+    select(Casas_Revisadas,
+           Casas_Positivas,
+           Total_de_Recipientes_con_Agua,
+           Total_de_Recipientes_Positivos) %>%
+    summarize(
+      HI = sum(Casas_Positivas)/ sum(Casas_Revisadas)*100,
+      CI = if(sum(Total_de_Recipientes_Positivos)>0){
+        sum(Total_de_Recipientes_Positivos)/
+          sum(Total_de_Recipientes_con_Agua)*100
+      }
+      else{0},
+      BI = sum(Total_de_Recipientes_Positivos)/ sum(Casas_Revisadas)*100
+    )%>%
+    ungroup()
+  return(dfti)
+}
