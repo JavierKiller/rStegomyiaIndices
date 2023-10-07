@@ -227,9 +227,9 @@ get_typology_container_by_type_of_study_and_location(df = df_fullt,
 var0 <- c("1248", "401")
 resultado <- get_stegomyia_indices_by_type_of_study_and_geo(df = df0t, st = "Verificacion", var = var0)
 
-rdd <-get_stegomyia_indices_by_type_of_study_and_geo(df = df_fullt,
-                                                         st = "Verificacion",
-                                                         var = var0
+rdd <-get_stegomyia_indices_by_type_of_study_and_geo(df = df0t,
+                                                     st = "Verificacion",
+                                                     var = "001"
 )
 
 
@@ -273,3 +273,20 @@ get_stegomyia_indices_by_type_of_study_and_geo <- function(
     ungroup()
   return(dfti)
 }
+EX <- get_stegomyia_indices_by_type_of_study_and_loc(df=df0t)
+
+xx <- get_stegomyia_indices_by_type_of_study_epidemic_week_and_loc()
+
+aa <-c(390, 400, 401, 403, 444, 500, 513, 540, 569)
+"Verificacion"
+get_stegomyia_indices_by_type_of_study_and_geo(df0t, st = "Encuesta", var = 915)
+
+dfx <- get_stegomyia_indices_by_type_of_study_and_geo_is(df0t, st = "Encuesta", var = aa)
+
+col_name = cols(Sector = col_double())
+path_out="~/CursoQR/Package1/rStegomyiaIndices/data-raw/statusindicesector.csv"
+df_aux <- read_csv(
+  path_out,
+  col_types = col_name)
+write_csv(df_aux, "~/CursoQR/Package1/rStegomyiaIndices/data-raw/statusindicesector0.csv")
+view(df0t)

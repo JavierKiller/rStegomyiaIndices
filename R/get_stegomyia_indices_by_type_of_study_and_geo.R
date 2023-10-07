@@ -49,7 +49,12 @@ get_stegomyia_indices_by_type_of_study_and_geo <- function(
    }
 
    dfti <- filtered_df %>%
-      select(Casas_Revisadas, Casas_Positivas, Total_de_Recipientes_con_Agua, Total_de_Recipientes_Positivos) %>%
+      select(Sector,
+             Casas_Revisadas,
+             Casas_Positivas,
+             Total_de_Recipientes_con_Agua,
+             Total_de_Recipientes_Positivos) %>%
+      group_by( Sector ) %>%
       summarize(
          HI = sum(Casas_Positivas) / sum(Casas_Revisadas) * 100,
          CI = if (sum(Total_de_Recipientes_Positivos) > 0) {
