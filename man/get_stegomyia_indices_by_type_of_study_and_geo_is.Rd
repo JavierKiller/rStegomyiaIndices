@@ -5,7 +5,12 @@
 \alias{get_stegomyia_indices_by_type_of_study_and_geo_is}
 \title{Get stegomyia indices by type of study  geo and indices status}
 \usage{
-get_stegomyia_indices_by_type_of_study_and_geo_is(df, st = "Verificacion", var)
+get_stegomyia_indices_by_type_of_study_and_geo_is(
+  df,
+  st = "Verificacion",
+  var,
+  path_out = "~/CursoQR/Package1/rStegomyiaIndices/data-raw/statusindicesector.csv"
+)
 }
 \arguments{
 \item{df}{the dataframe with information.}

@@ -34,21 +34,21 @@ importFrom(dplyr)
 importFrom(ggplot2)
 importFrom(readr)
 
-"tidyverse",
-"lazyeval",
-"lubridate",
-"rlang",
-"dplyr",
-"ggplot2",
-"readr"
-
-tidyverse,
-lazyeval,
-lubridate,
-rlang,
-dplyr,
-ggplot2,
-readr
+# "tidyverse",
+# "lazyeval",
+# "lubridate",
+# "rlang",
+# "dplyr",
+# "ggplot2",
+# "readr"
+#
+# tidyverse,
+# lazyeval,
+# lubridate,
+# rlang,
+# dplyr,
+# ggplot2,
+# readr
 
 col_namef = cols(
   Tipo_de_Estudio = col_factor(levels = c("Encuesta", "Verificacion")),
@@ -290,3 +290,6 @@ df_aux <- read_csv(
   col_types = col_name)
 write_csv(df_aux, "~/CursoQR/Package1/rStegomyiaIndices/data-raw/statusindicesector0.csv")
 view(df0t)
+
+
+

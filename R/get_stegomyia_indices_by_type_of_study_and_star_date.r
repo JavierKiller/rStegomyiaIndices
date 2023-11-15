@@ -72,7 +72,8 @@ get_stegomyia_indices_by_type_of_study_and_star_date <- function(
       filter(Casas_Revisadas > 0)
   }
   dfti <- dfd %>%
-    select(Casas_Revisadas,
+    select(Sector,
+           Casas_Revisadas,
            Casas_Positivas,
            Total_de_Recipientes_con_Agua,
            Total_de_Recipientes_Positivos) %>%
