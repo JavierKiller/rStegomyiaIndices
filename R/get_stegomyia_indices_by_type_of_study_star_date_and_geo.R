@@ -57,8 +57,8 @@ get_stegomyia_indices_by_type_of_study_star_date_and_geo <- function(
   dfti <- filtered_df %>%
     filter(Tipo_de_Estudio ==  st,
            Fecha_de_Inicio == ymd(date),
-           Sector == var) %>%
-    select(Casas_Revisadas,
+           Sector %in% var) %>%
+    dplyr::select(Casas_Revisadas,
            Casas_Positivas,
            Total_de_Recipientes_con_Agua,
            Total_de_Recipientes_Positivos) %>%

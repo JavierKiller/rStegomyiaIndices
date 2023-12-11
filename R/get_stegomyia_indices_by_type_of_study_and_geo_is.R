@@ -17,11 +17,13 @@
 #' @param st The type of study selected. By default, it is set to
 #' "Verificacion".
 #' @param var The geographic variable used to calculate the stegomyia indices.
+#' @param path_out path for that data of stegomyia indices and status. By
+#' default, it is set to "~/CursoQR/Package1/rStegomyiaIndices/data-raw/statusindicesector.csv"
 #'
 #' @return
 #'
-#' The dataframe with stegomyia indices of the selection of type of study and
-#' geographic variable.
+#' The dataframe with stegomyia indices and status of the selection of type of
+#' study and geographic variable.
 #'
 #' @export
 #'
@@ -50,7 +52,7 @@ get_stegomyia_indices_by_type_of_study_and_geo_is <- function(
   }
 
   dfti <- filtered_df %>%
-    select(Sector,
+    dplyr::select(Sector,
            Casas_Revisadas,
            Casas_Positivas,
            Total_de_Recipientes_con_Agua,
@@ -96,3 +98,4 @@ get_stegomyia_indices_by_type_of_study_and_geo_is <- function(
   write_csv(df, path_out)
    return(dfti)
 }
+

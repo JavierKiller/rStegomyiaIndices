@@ -8,7 +8,7 @@
 #'
 #' @return
 #'
-#' The dataframe with ######### of the selection of type of study and
+#' The dataframe with location of the selection of type of study and
 #' geographic variable.
 #'
 #' @export
@@ -36,7 +36,7 @@ get_typology_container_by_type_of_study_and_location <- function(df,
   dfts <- dft %>%
     filter(Total_de_Recipientes_Positivos > 0
     ) %>%
-    select(Tipo_de_Estudio,
+    dplyr::select(Tipo_de_Estudio,
            Localidad,
            Recipientes_Tratables,
            Recipientes_Controlables,

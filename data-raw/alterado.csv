@@ -1,0 +1,12 @@
+Tipo_de_Estudio.x,Sector,Fecha_de_Inicio_E,Casas_Revisadas_E,Casas_Positivas_E,Total_de_Recipientes_con_Agua_E,Total_de_Recipientes_Positivos_E,Tipo_de_Estudio.y,Fecha_de_Inicio_V,Casas_Revisadas_V,Casas_Positivas_V,Total_de_Recipientes_con_Agua_V,Total_de_Recipientes_Positivos_V,sum_na
+Encuesta,999,04/01/2021,123,24,1176,45,Verificacion,07/01/2021,123,0,375,0,0
+Encuesta,999,07/01/2021,69,6,141,6,Verificacion,07/01/2021,66,3,156,3,0
+Encuesta,999,07/01/2021,126,9,399,9,Verificacion,08/01/2021,153,15,360,15,0
+Encuesta,999,07/01/2021,153,9,414,9,Verificacion,06/01/2021,207,15,570,18,0
+Encuesta,999,07/01/2021,63,3,171,5,Verificacion,08/01/2021,150,0,549,0,0
+Encuesta,989,08/01/2021,213,30,723,33,Verificacion,06/01/2021,75,9,168,9,0
+Encuesta,989,06/01/2021,303,12,690,12,Verificacion,08/01/2021,156,0,519,0,0
+Encuesta,989,12/01/2021,36,0,123,0,Verificacion,12/01/2021,276,0,297,0,0
+Encuesta,989,14/01/2021,147,15,468,15,Verificacion,11/01/2021,78,0,168,0,0
+Encuesta,989,12/01/2021,150,15,390,12,Verificacion,12/01/2021,72,0,93,0,0
+Encuesta,989,07/01/2021,63,3,171,5,Verificacion,07/01/2021,123,0,375,0,0

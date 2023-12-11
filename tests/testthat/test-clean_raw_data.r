@@ -1,20 +1,21 @@
-# path_data_prefix <- "~/CursoQR/Package1/rStegomyiaIndices"
-# path_data_file_name <- "/data-raw/qr.csv"
-# path_data_file_name_lew <- "/data-raw/qr_lew.csv"
-# path_data_file_name_full <- "/data-raw/qr_full.csv"
+path_data_prefix <- "~/CursoQR/Package1/rStegomyiaIndices"
+path_data_file_name <- "/data-raw/qr.csv"
+path_data_file_name_lew <- "/data-raw/qr_lew.csv"
+path_data_file_name_full <- "/data-raw/qr_full.csv"
 # path_data_file_namet <- "/data-raw/qrt.csv"
 # path_data_file_name_lewt <- "/data-raw/qr_lewt.csv"
 # path_data_file_name_fullt <- "/data-raw/qr_fullt.csv"
-# path_data <- paste(path_data_prefix, path_data_file_name, sep = "")
-# path_data_lew <- paste(path_data_prefix, path_data_file_name_lew, sep = "")
-# path_data_full <- paste(path_data_prefix, path_data_file_name_full, sep = "")
+path_data <- paste(path_data_prefix, path_data_file_name, sep = "")
+path_data_lew <- paste(path_data_prefix, path_data_file_name_lew, sep = "")
+path_data_full <- paste(path_data_prefix, path_data_file_name_full, sep = "")
 # path_datat <- paste(path_data_prefix, path_data_file_namet, sep = "")
 # path_data_lewt <- paste(path_data_prefix, path_data_file_name_lewt, sep = "")
 # path_data_fullt <- paste(path_data_prefix, path_data_file_name_fullt, sep = "")
 #path_data <- "../../data-raw/qr.csv"
-df0 <- read.csv(path_data)
-df_lew <- read_csv(path_data_lew)
-df_full <- read.csv(path_data_full)
+
+#df0 <- read.csv(path_data)
+#df_lew <- read_csv(path_data_lew)
+#df_full <- read.csv(path_data_full)
 colt= list(
   Tipo_de_Estudio = col_factor(c("Encuesta", "Verificacion")),
   Clave_Jurisdiccion = "f",

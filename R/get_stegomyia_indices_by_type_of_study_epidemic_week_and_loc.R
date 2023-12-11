@@ -58,7 +58,7 @@ get_stegomyia_indices_by_type_of_study_epidemic_week_and_loc <- function(
     filter(Tipo_de_Estudio ==  st,
            Semana_Epidemiologica %in% ew,
            Localidad %in% var) %>%
-    select(Casas_Revisadas,
+    dplyr::select(Casas_Revisadas,
            Casas_Positivas,
            Total_de_Recipientes_con_Agua,
            Total_de_Recipientes_Positivos) %>%

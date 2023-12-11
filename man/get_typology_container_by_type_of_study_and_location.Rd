@@ -20,7 +20,7 @@ get_typology_container_by_type_of_study_and_location(
 \item{var}{The location with geographic variable used to .}
 }
 \value{
-The dataframe with ######### of the selection of type of study and
+The dataframe with location of the selection of type of study and
 geographic variable.
 }
 \description{

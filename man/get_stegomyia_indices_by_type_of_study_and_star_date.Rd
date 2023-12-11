@@ -8,7 +8,8 @@
 get_stegomyia_indices_by_type_of_study_and_star_date(
   df,
   st = "Verificacion",
-  date = "2021/01/07"
+  date = "2021/01/07",
+  path_out = "~/CursoQR/Package1/rStegomyiaIndices/data-raw/indicesdate.csv"
 )
 }
 \arguments{

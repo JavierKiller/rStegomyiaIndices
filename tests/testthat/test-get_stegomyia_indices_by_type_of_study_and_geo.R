@@ -3,6 +3,7 @@
 # path_datat <- paste(path_data_prefix, path_data_file_namet, sep = "")
 # df0 <- read_csv(path_datat)
 # df <- clean_raw_data(df0,path_out = path_datat)
+#dos fails
 var0 <- c("401","1248")
 # Make DataFrame
 dftest <- data.frame(HI = (3/66*100), CI = (3/156*100), BI = (3/66*100))

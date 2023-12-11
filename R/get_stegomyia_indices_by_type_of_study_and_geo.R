@@ -49,7 +49,7 @@ get_stegomyia_indices_by_type_of_study_and_geo <- function(
    }
 
    dfti <- filtered_df %>%
-      select(Sector,
+      dplyr::select(Sector,
              Casas_Revisadas,
              Casas_Positivas,
              Total_de_Recipientes_con_Agua,

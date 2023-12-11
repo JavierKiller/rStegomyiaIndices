@@ -19,10 +19,13 @@ get_stegomyia_indices_by_type_of_study_and_geo_is(
 "Verificacion".}
 
 \item{var}{The geographic variable used to calculate the stegomyia indices.}
+
+\item{path_out}{path for that data of stegomyia indices and status.By
+default, it is set to "~/CursoQR/Package1/rStegomyiaIndices/data-raw/statusindicesector.csv"}
 }
 \value{
-The dataframe with stegomyia indices of the selection of type of study and
-geographic variable.
+The dataframe with stegomyia indices and status of the selection of type of
+study and geographic variable.
 }
 \description{
 The Stegomyia indices are calculated for each sampling. Once the data have

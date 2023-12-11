@@ -56,33 +56,35 @@
 get_stegomyia_indices_by_type_of_study_and_star_date <- function(
     df,
     st = "Verificacion",
-    date = "2021/01/07"
+    date = "2021/01/07",
+    path_out = "~/CursoQR/Package1/rStegomyiaIndices/data-raw/indicesdate.csv"
 ){
   df$Fecha_de_Inicio <- as.Date(df$Fecha_de_Inicio, format = "%d/%m/%Y")
   dfd <- df %>%
     filter(Tipo_de_Estudio %in% st, Fecha_de_Inicio %in% ymd(date))
   if (nrow(dfd) == 0){
     stop("These filters don´t have data in this data.frame")
-  }
+    }
   condiction <- nrow(dfd %>%
                        filter(Casas_Revisadas == 0))
   if (condiction !=0){
     warning("Casa_Revisada with 0")
     dfd <- dfd %>%
       filter(Casas_Revisadas > 0)
-  }
+    }
   dfti <- dfd %>%
-    select(Sector,
+    dplyr::select(Sector,
            Casas_Revisadas,
            Casas_Positivas,
            Total_de_Recipientes_con_Agua,
            Total_de_Recipientes_Positivos) %>%
+    group_by(Sector) %>%
     summarize(
       HI = sum(Casas_Positivas)/ sum(Casas_Revisadas)*100,
       CI = if(sum(Total_de_Recipientes_Positivos)>0){
         sum(Total_de_Recipientes_Positivos)/
           sum(Total_de_Recipientes_con_Agua)*100
-      }
+        }
       else{0},
       BI = sum(Total_de_Recipientes_Positivos)/ sum(Casas_Revisadas)*100
     )%>%

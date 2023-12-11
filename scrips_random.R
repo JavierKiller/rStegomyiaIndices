@@ -290,6 +290,29 @@ df_aux <- read_csv(
   col_types = col_name)
 write_csv(df_aux, "~/CursoQR/Package1/rStegomyiaIndices/data-raw/statusindicesector0.csv")
 view(df0t)
+#ejemplo con otras bases de datos
 
-
-
+write_csv(df_ev, "~/CursoQR/Package1/rStegomyiaIndices/data-raw/alterado.csv")
+df_evalterado <- read.csv("~/CursoQR/Package1/rStegomyiaIndices/data-raw/alterado.csv")
+df_evalterado
+df_evt11 <- df_evalterado %>%
+  group_by(Sector) %>%
+  summarize(
+    #Days = (Fecha_de_Inicio_V - Fecha_de_Inicio_E),
+    HI_E = sum(Casas_Positivas_E) / sum(Casas_Revisadas_E) * 100,
+    HI_V = sum(Casas_Positivas_V) / sum(Casas_Revisadas_V) * 100,
+    CI_E = if (sum(Total_de_Recipientes_Positivos_E) > 0) {
+      sum(Total_de_Recipientes_Positivos_E) / sum(Total_de_Recipientes_con_Agua_E) * 100
+    } else {
+      0
+    },
+    CI_V = if (sum(Total_de_Recipientes_Positivos_V) > 0) {
+      sum(Total_de_Recipientes_Positivos_V) / sum(Total_de_Recipientes_con_Agua_V) * 100
+    } else {
+      0
+    },
+    BI_E = sum(Total_de_Recipientes_Positivos_E) / sum(Casas_Revisadas_E) * 100,
+    BI_V = sum(Total_de_Recipientes_Positivos_V) / sum(Casas_Revisadas_V) * 100
+  ) %>%
+  ungroup()
+df_evt11
