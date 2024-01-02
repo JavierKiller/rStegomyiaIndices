@@ -26,7 +26,7 @@
 #'
 #' @examples
 #' get_stegomyia_indices_by_type_of_study_epidemic_week_and_loc(df, "Encuesta",
-#' "2, var = "HERMOSILLO")
+#' " ew = 2, var = "HERMOSILLO")
 #'
 #'  @export
 

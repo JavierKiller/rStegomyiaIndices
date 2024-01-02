@@ -1,5 +1,8 @@
 #' Positive Typology Container by type of study and location
 #'
+#' Complementary to the Stegomyia indices, the type of positive container is
+#'  determined to establish the preference of mosquitoes in the use of
+#'  breeding sites.
 #'
 #' @param df the dataframe with information.
 #' @param st The type of study selected. By default, it is set to
@@ -14,8 +17,9 @@
 #' @export
 #'
 #' @examples
-#' get_typology_container_by_type_of_study_and_location(df, st = "Verificacion",
-#'   var ="CIUDAD_OBREGÓN").
+#' get_typology_container_by_type_of_study_and_location(df,
+#'  st = "Verificacion",
+#'  var ="CIUDAD_OBREGÓN").
 #'
 ####TODO: actualizar documentation####
 get_typology_container_by_type_of_study_and_location <- function(df,

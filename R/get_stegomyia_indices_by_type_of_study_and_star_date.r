@@ -28,31 +28,6 @@
 #' df<-get_stegomyia_indices_by_type_of_study_and_star_date(df,
 #' st = "Verificacion", date = "2021/01/06" )
 
-
-# get_stegomyia_indices_by_type_of_study_and_star_date <- function(
-#     df,
-#     st = "Verificacion",
-#     date = "2021/01/07"
-# ){
-#   date <- as.Date(date, format = "%Y/%m/%d")
-#   dfd <- df %>%
-#     filter(Tipo_de_Estudio == st, Fecha_de_Inicio == ymd(date))
-#   if (nrow(dfd) == 0){
-#     stop("These filters don´t have data in this data.frame")
-#   }
-#   dfti <- dfd %>%
-#     select(Casas_Revisadas,
-#            Casas_Positivas,
-#            Total_de_Recipientes_con_Agua,
-#            Total_de_Recipientes_Positivos) %>%
-#     summarize(
-#       HI = sum(Casas_Positivas)/sum(Casas_Revisadas)*100,
-#       CI = sum(Total_de_Recipientes_Positivos)/sum(Total_de_Recipientes_con_Agua)*100,
-#       BI = sum(Total_de_Recipientes_Positivos)/sum(Casas_Revisadas)*100
-#     ) %>%
-#     ungroup()
-#   return(dfti)
-# }
 get_stegomyia_indices_by_type_of_study_and_star_date <- function(
     df,
     st = "Verificacion",

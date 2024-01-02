@@ -25,10 +25,23 @@ clean_raw_data <- function(
     df,
     path_out = "~/CursoQR/Package1/rStegomyiaIndices/data-raw/qr.csv",
     col_name = cols(
-      Tipo_de_Estudio = col_factor(levels = c("Encuesta", "Verificacion")),
-      Clave_Jurisdiccion = col_factor(levels = as.character(c(2601, 2602, 2603, 2604, 2605, 2606))),
+      Tipo_de_Estudio = col_factor(levels = c(
+        "Encuesta",
+        "Verificacion")),
+      Clave_Jurisdiccion = col_factor(levels = as.character(c(
+        2601,
+        2602,
+        2603,
+        2604,
+        2605,
+        2606))),
       Jurisdiccion = col_factor(levels = c(
-        "Hermosillo", "Caborca", "Cananea", "Cajeme", "Navojoa", "San_Luis_Río_Colorado"
+        "Hermosillo",
+        "Caborca",
+        "Cananea",
+        "Cajeme",
+        "Navojoa",
+        "San_Luis_Río_Colorado"
       )),
       Clave_Municipio = col_factor(levels = as.character(1:72)),
       Municipio = col_factor(),
