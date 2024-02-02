@@ -29,4 +29,7 @@ Imports:
     ggplot2,
     readr
 Suggests: 
+    knitr,
+    rmarkdown,
     testthat (>= 3.0.0)
+VignetteBuilder: knitr

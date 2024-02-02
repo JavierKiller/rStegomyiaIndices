@@ -1,0 +1,56 @@
+---
+title: "Helpfile"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Helpfile}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# get_sector_with_star_date_by_type_study
+
+The `get_sector_with_star_date_by_type_study` function calculates
+Stegomyia indices for each sampling. Once the data has been loaded with
+the function `load_rwa_data` and the data type has been changed using
+the function `clean_raw_data`, you can select the study type and
+geographic variable using the following formulas:
+
+-   Container Index (CI): (number of infected containers / total number
+    of containers) \* 100.
+-   House Index (HI): (number of infected houses / total number of
+    houses) \* 100.
+-   Breteau Index (BI): (number of positive containers / number of
+    houses explored) \* 100.
+
+## Arguments
+
+df: The dataframe with information. pathout: The path to the output CSV
+file. Value The dataframe with stegomyia indices of the selection of
+type of study and geographic variable.
+
+## Examples
+
+```{r}
+library(rStegomyiaIndices)
+get_sector_with_star_date_by_type_study(df,
+                                        pathout = "/data-raw/example_table_indices_sector_in_date.csv")
+
+```
+
+## Usage
+
+```{r}
+
+get_sector_with_star_date_by_type_study(df, pathout)
+
+```

@@ -16,7 +16,7 @@
 #'
 #'
 #' @param df the dataframe with information.
-#' @param pathout
+#' @param pathout ~/CursoQR/Package1/rStegomyiaIndices/data-raw/table_indices_sector_in_date.csv
 #'
 #' @return
 #'
@@ -32,11 +32,6 @@
 #'
 #'
 
-# evaluation_
-#df= df0t
-# posd= "~/CursoQR/Package1/sector_and_date_2021.csv"
-# pathout <- posd
-# df= df2021f
 get_sector_with_star_date_by_type_study <- function(
   df,
   pathout = "~/CursoQR/Package1/rStegomyiaIndices/data-raw/table_indices_sector_in_date.csv"
@@ -107,6 +102,3 @@ get_sector_with_star_date_by_type_study <- function(
  write_csv(df_evt, path = path_out)
  return(df_evt)
   }
-
-
-#count(df_ev,)
