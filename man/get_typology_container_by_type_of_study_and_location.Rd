@@ -24,10 +24,13 @@ The dataframe with location of the selection of type of study and
 geographic variable.
 }
 \description{
-Positive Typology Container by type of study and location
+Complementary to the Stegomyia indices, the type of positive container is
+ determined to establish the preference of mosquitoes in the use of
+ breeding sites.
 }
 \examples{
-get_typology_container_by_type_of_study_and_location(df, st = "Verificacion",
-  var ="CIUDAD_OBREGÓN").
+get_typology_container_by_type_of_study_and_location(df,
+ st = "Verificacion",
+ var ="CIUDAD_OBREGÓN").
 
 }

@@ -20,7 +20,7 @@ get_stegomyia_indices_by_type_of_study_and_geo_is(
 
 \item{var}{The geographic variable used to calculate the stegomyia indices.}
 
-\item{path_out}{path for that data of stegomyia indices and status.By
+\item{path_out}{path for that data of stegomyia indices and status. By
 default, it is set to "~/CursoQR/Package1/rStegomyiaIndices/data-raw/statusindicesector.csv"}
 }
 \value{
@@ -29,7 +29,7 @@ study and geographic variable.
 }
 \description{
 The Stegomyia indices are calculated for each sampling. Once the data have
-been loaded with function "load_rwa_data" and changed type data of function
+been loaded with function "load_raw_data" and changed type data of function
 "clean_raw_data", select study type and geographic variable using the
 following
    formulas:

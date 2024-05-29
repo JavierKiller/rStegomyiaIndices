@@ -42,8 +42,14 @@ type of study and geographic variable.
 
 ```{r}
 library(rStegomyiaIndices)
-get_sector_with_star_date_by_type_study(df,
-                                        pathout = "/data-raw/example_table_indices_sector_in_date.csv")
+#df <-
+#m1 <-
+#dirmp <-
+maps <- get_maps_stegomyia_indices(df,
+                           m1= w1,
+                           m0 = d0)
+
+listmaps
 
 ```
 

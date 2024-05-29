@@ -23,7 +23,7 @@ get_sector_with_star_date_by_type_study(
 \arguments{
 \item{df}{the dataframe with information.}
 
-\item{pathout}{}
+\item{pathout}{~/CursoQR/Package1/rStegomyiaIndices/data-raw/table_indices_sector_in_date.csv}
 }
 \value{
 The dataframe with stegomyia indices of the selection of type of study and
