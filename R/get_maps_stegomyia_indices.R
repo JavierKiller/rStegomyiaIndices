@@ -22,8 +22,8 @@
 #'  )
 #'
 #' get_maps_stegomyia_indices(df = "~/CursoQR/Package1/rStegomyiaIndices/data-raw/statusindicesector.csv" ,
-#' m1 = "~/CursoQR/Package1/rStegomyiaIndices/data-raw/maps/ejercicio_sectores_hermosillo.shp",
-#' m0 = "~/CursoQR/Package1/rStegomyiaIndices/data-raw/maps/ejercicio_sectores_hermosillo2.shp"
+#' m1 = "ejercicio_sectores_hermosillo.shp",
+#' m0 = "ejercicio_sectores_hermosillo2.shp"
 #' ).
 #'
 
@@ -51,6 +51,13 @@ get_maps_stegomyia_indices <- function(
   # plot(dw)
   # names(dw)
   # summary(dw)
+  #lista de colores
+  colores_id <- c(
+    "Optimo" = "blue",
+    "Bueno" = "green",
+    "Alarma" = "yellow",
+    "Emergencia" = "red"
+  )
   df_HI <- fortify(dw,
                  region = "ind__HI")
   #df_HI
@@ -69,8 +76,10 @@ get_maps_stegomyia_indices <- function(
                      fill = id),
                  color = "black",
                  size = 0.5) +
-    coord_map()
-
+    coord_map() +
+    labs(title = "Stegomyia House Index in Hermosillo") +
+    scale_fill_manual(values = colores_id)
+  #return(df_HI)
   #tail(df_HI)
 
   df_CI <- fortify(dw,
@@ -91,7 +100,9 @@ get_maps_stegomyia_indices <- function(
                      fill = id),
                  color = "black",
                  size = 0.5) +
-    coord_map()
+    coord_map() +
+    labs(title = "Stegomyia Container Index in Hermosillo") +
+    scale_fill_manual(values = colores_id)
   #return(p_CI)
   #tail(df_CI)
 
@@ -114,7 +125,9 @@ get_maps_stegomyia_indices <- function(
                      fill = id),
                  color = "black",
                  size = 0.5) +
-    coord_map()
+    coord_map() +
+    labs(title = "Stegomyia Breteau Index in Hermosillo") +
+    scale_fill_manual(values = colores_id)
   #return(p_BI)
   listmaps<-list(p_HI, p_CI, p_BI)
 
