@@ -42,9 +42,9 @@ type of study and geographic variable.
 
 ```{r}
 library(rStegomyiaIndices)
-#df <-
-#m1 <-
-#dirmp <-
+#df <- read.csv("~/CursoQR/Package1/rStegomyiaIndices/data-raw/statusindicesector.csv")
+#w1 <- st_read("~/CursoQR/Package1/rStegomyiaIndices/data-raw/maps/ejercicio_sectores_hermosillo.shp"
+#d0 <- readShapePoly("~/CursoQR/Package1/rStegomyiaIndices/data-raw/maps/ejercicio_sectores_hermosillo2.shp")
 maps <- get_maps_stegomyia_indices(df,
                            m1= w1,
                            m0 = d0)

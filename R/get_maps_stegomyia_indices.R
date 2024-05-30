@@ -1,13 +1,18 @@
 #' get_maps_stegomyia_indices
 #'
-#'This function generates maps for three Stegomyia indices (Entomological Risk Indices) of dataframe make to funtion get_stegomyia_indices_by_type_of_study_and_geo_is.
-#' This data frame containing information about sectors and their corresponding indices.
+#' This function generates maps for three Stegomyia indices (Entomological Risk
+#' Indices) of dataframe make to funtion
+#' get_stegomyia_indices_by_type_of_study_and_geo_is.
+#' This data frame containing information about sectors and their corresponding
+#' indices.
 #'
 #' @param df the dataframe with information.
-#' @param m1 "~/CursoQR/Package1/rStegomyiaIndices/data-raw/maps/ejercicio_sectores_hermosillo.shp"
-#' @param m0 "~/CursoQR/Package1/rStegomyiaIndices/data-raw/maps/ejercicio_sectores_hermosillo_transformado.shp"
-#' @param dir
-#'
+#' @param m1 is a shapefile"ejercicio_sectores_hermosillo.shp" with geographic
+#'  information of hermosillo city for join dataframe with information of
+#'  indices stegomyia
+#' @param m0 is a shapefile "ejercicio_sectores_hermosillo2.shp" with limit of
+#' sectors of hermosillo city. This shapefile use to fution with m1 and give
+#' limits of the sectors and the hermosillo city
 #'
 #'   print(maps$HI)  # Print the map for the House Index
 #'   print(maps$CI)  # Print the map for the Container Index
@@ -48,9 +53,7 @@ get_maps_stegomyia_indices <- function(
            append = F)
   #load to new map
   dw=readShapePoly("~/CursoQR/Package1/rStegomyiaIndices/data-raw/maps/ejercicio_sectores_hermosillo_transformado.shp")
-  # plot(dw)
-  # names(dw)
-  # summary(dw)
+
   #lista de colores
   colores_id <- c(
     "Optimo" = "blue",
@@ -60,7 +63,7 @@ get_maps_stegomyia_indices <- function(
   )
   df_HI <- fortify(dw,
                  region = "ind__HI")
-  #df_HI
+ #map HI
   p_HI <- ggplot() +
     geom_polygon(data = d0,
                  aes(x = long,
@@ -79,12 +82,10 @@ get_maps_stegomyia_indices <- function(
     coord_map() +
     labs(title = "Stegomyia House Index in Hermosillo") +
     scale_fill_manual(values = colores_id)
-  #return(df_HI)
-  #tail(df_HI)
 
   df_CI <- fortify(dw,
                    region = "ind__CI")
-  #df_CI
+ #map CI
   p_CI <- ggplot() +
     geom_polygon(data = d0,
                  aes(x = long,
@@ -103,13 +104,10 @@ get_maps_stegomyia_indices <- function(
     coord_map() +
     labs(title = "Stegomyia Container Index in Hermosillo") +
     scale_fill_manual(values = colores_id)
-  #return(p_CI)
-  #tail(df_CI)
 
   df_BI <- fortify(dw,
                    region = "ind__BI")
-  #df_BI
-
+ #map BI
   p_BI <- ggplot() +
     geom_polygon(data = d0,
                  aes(x = long,
@@ -131,6 +129,17 @@ get_maps_stegomyia_indices <- function(
   #return(p_BI)
   listmaps<-list(p_HI, p_CI, p_BI)
 
-#return(listmaps)
+print(listmaps)
 
 }
+
+# library(GISTools)
+# library(ggplot2)
+# library(Cairo)
+# library(tidyverse)
+# library(raster)
+# library(rgeos)
+# library(maptools)
+# library(ggmap)
+# library(ggplot2)
+# library(sf)
