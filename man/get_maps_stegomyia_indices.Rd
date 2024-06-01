@@ -9,24 +9,34 @@ get_maps_stegomyia_indices(df, m1 = w1, m0 = d0)
 \arguments{
 \item{df}{the dataframe with information.}
 
-\item{m1}{~/CursoQR/Package1/rStegomyiaIndices/data-raw/table_indices_sector_in_date.csv}
+\item{m1}{is a shapefile"ejercicio_sectores_hermosillo.shp" with geographic
+information of hermosillo city for join dataframe with information of
+indices stegomyia}
 
-\item{m0}{"~/CursoQR/Package1/rStegomyiaIndices/data-raw/maps/ejercicio_sectores_hermosillo_transformado.shp"
+\item{m0}{is a shapefile "ejercicio_sectores_hermosillo2.shp" with limit of
+sectors of hermosillo city. This shapefile use to fution with m1 and give
+limits of the sectors and the hermosillo city
 
   print(maps$HI)  # Print the map for the House Index
   print(maps$CI)  # Print the map for the Container Index
   print(maps$BI)  # Print the map for the Breteau Index}
 }
 \value{
-A list of three ggplot objects representing the maps for different Stegomyia indices.
+listmaps: A list of three ggplot objects representing the maps for
+different Stegomyia indices.
 }
 \description{
-This function generates maps for three Stegomyia indices (Entomological Risk Indices) of dataframe make to funtion get_stegomyia_indices_by_type_of_study_and_geo_is.
-This data frame containing information about sectors and their corresponding indices.
+This function generates maps for three Stegomyia indices (Entomological Risk
+Indices) of dataframe make to funtion
+get_stegomyia_indices_by_type_of_study_and_geo_is.
+This data frame containing information about sectors and their corresponding
+indices.
 }
 \examples{
-get_sector_with_star_date_by_type_study(df,
-m1 = "/data-raw/example_table_indices_sector_in_date.csv",
+
+df(df = "~/CursoQR/Package1/rStegomyiaIndices/data-raw/statusindicesector.csv" ,
+m1 = "ejercicio_sectores_hermosillo.shp",
+m0 = "ejercicio_sectores_hermosillo2.shp"
 ).
 
 }

@@ -18,15 +18,12 @@
 #'   print(maps$CI)  # Print the map for the Container Index
 #'   print(maps$BI)  # Print the map for the Breteau Index
 
-#' @return listmaps: A list of three ggplot objects representing the maps for different Stegomyia indices.
+#' @return listmaps: A list of three ggplot objects representing the maps for
+#' different Stegomyia indices.
 #'
 #' @examples
 #'
-#' get_maps_stegomyia_indices(df,
-#'  m1 =
-#'  )
-#'
-#' get_maps_stegomyia_indices(df = "~/CursoQR/Package1/rStegomyiaIndices/data-raw/statusindicesector.csv" ,
+#' df(df = "~/CursoQR/Package1/rStegomyiaIndices/data-raw/statusindicesector.csv" ,
 #' m1 = "ejercicio_sectores_hermosillo.shp",
 #' m0 = "ejercicio_sectores_hermosillo2.shp"
 #' ).
@@ -37,6 +34,16 @@ get_maps_stegomyia_indices <- function(
     m1 = w1,
     m0 = d0
     ){
+  names_df <- names(df)
+  condition_names_index_error <-  "index_status_HI" %in% names_df
+  if (isFALSE(condition_names_index_error)) {
+    stop("dataframe o path is incorrect")
+  }
+  condicion_nrows <- nrow(df)>0
+  if(isFALSE(condicion_nrows)){
+    stop("dataframe is empty")
+  }
+
   w2 <- st_transform(m1,
                    4326)
   #rename of variable
@@ -52,7 +59,7 @@ get_maps_stegomyia_indices <- function(
            dsn = "~/CursoQR/Package1/rStegomyiaIndices/data-raw/maps/ejercicio_sectores_hermosillo_transformado.shp",
            append = F)
   #load to new map
-  dw=readShapePoly("~/CursoQR/Package1/rStegomyiaIndices/data-raw/maps/ejercicio_sectores_hermosillo_transformado.shp")
+  dw <- readShapePoly("~/CursoQR/Package1/rStegomyiaIndices/data-raw/maps/ejercicio_sectores_hermosillo_transformado.shp")
 
   #lista de colores
   colores_id <- c(
@@ -81,7 +88,8 @@ get_maps_stegomyia_indices <- function(
                  size = 0.5) +
     coord_map() +
     labs(title = "Stegomyia House Index in Hermosillo") +
-    scale_fill_manual(values = colores_id)
+    scale_fill_manual(values = colores_id) +
+    ggsave("p_HI.png", path = "~/CursoQR/Package1/rStegomyiaIndices/visualization")
 
   df_CI <- fortify(dw,
                    region = "ind__CI")
@@ -103,7 +111,8 @@ get_maps_stegomyia_indices <- function(
                  size = 0.5) +
     coord_map() +
     labs(title = "Stegomyia Container Index in Hermosillo") +
-    scale_fill_manual(values = colores_id)
+    scale_fill_manual(values = colores_id) +
+    ggsave("p_CI.png", path = "~/CursoQR/Package1/rStegomyiaIndices/visualization")
 
   df_BI <- fortify(dw,
                    region = "ind__BI")
@@ -125,16 +134,16 @@ get_maps_stegomyia_indices <- function(
                  size = 0.5) +
     coord_map() +
     labs(title = "Stegomyia Breteau Index in Hermosillo") +
-    scale_fill_manual(values = colores_id)
-  #return(p_BI)
+    scale_fill_manual(values = colores_id) +
+    ggsave("p_BI.png", path = "~/CursoQR/Package1/rStegomyiaIndices/visualization")
+
   listmaps<-list(p_HI, p_CI, p_BI)
 
-print(listmaps)
+#print(listmaps)
 
 }
 
 # library(GISTools)
-# library(ggplot2)
 # library(Cairo)
 # library(tidyverse)
 # library(raster)

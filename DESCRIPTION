@@ -27,7 +27,12 @@ Imports:
     rlang,
     dplyr,
     ggplot2,
-    readr
+    readr,
+    ggmap,
+    maptools,
+    rgeos,
+    raster,
+    GISTools,
 Suggests: 
     knitr,
     rmarkdown,
