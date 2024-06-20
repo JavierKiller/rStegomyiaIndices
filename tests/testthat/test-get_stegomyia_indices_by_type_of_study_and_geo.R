@@ -6,10 +6,10 @@
 #dos fails
 var0 <- c("401","1248")
 # Make DataFrame
-dftest <- data.frame(HI = (3/66*100), CI = (3/156*100), BI = (3/66*100))
-dftest0 <- data.frame(HI = 0, CI = 0, BI = 0)
+dftest <- data.frame(Sector = factor(401), HI = (3/66*100), CI = (3/156*100), BI = (3/66*100))
+dftest0 <- data.frame(Sector = factor(390), HI = 0, CI = 0, BI = 0)
 test_that("calculation_of_stegomyia_indices_by_type_of_study_and_geo_of_data.frame", {
-  expected <- get_stegomyia_indices_by_type_of_study_and_geo(df = df0t,
+  expected <- get_stegomyia_indices_by_type_of_study_and_geo(df = df0,
                                                                    st = "Verificacion",
                                                                    var = "401"
   )

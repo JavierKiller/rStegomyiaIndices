@@ -23,11 +23,9 @@
 #' The dataframe with stegomyia indices of the selection of type of study and
 #' location variable.
 #'
-#' @export
-#'
 #' @examples
-#' get_stegomyia_indices_by_type_of_study_and_loc(df, st = "Verificacion",
-#'   var ="CIUDAD_OBREGÓN").
+#'
+#' get_stegomyia_indices_by_type_of_study_and_loc(df0, st = "Verificacion", "CIUDAD_OBREGÓN")
 #'
 
 ####TODO: actualizar con vignette####

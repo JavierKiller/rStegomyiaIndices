@@ -1,43 +1,33 @@
-#' Get stegomyia indices by type of study  geo and indices status
+#' Get stegomyia indices by type of study and geographic variable
 #'
 #' The Stegomyia indices are calculated for each sampling. Once the data have
-#' been loaded with function "load_raw_data" and changed type data of function
-#' "clean_raw_data", select study type and geographic variable using the
-#' following
-#'    formulas:
-#'       - Container Index(CI): (number of infected containers/total number of
-#'       containers) * 100.
-#'       - House Index (HI): (number of infected houses /total number of
-#'       houses) * 100.
-#'       - Breteau Index (BI): (number of positive containers/number of houses
-#'       explored) * 100.
+#' been loaded with the function "load_raw_data" and processed with the function
+#' "clean_raw_data", you can select the study type and geographic variable using the
+#' following formulas:
+#' - Container Index (CI): (number of infected containers / total number of containers) * 100.
+#' - House Index (HI): (number of infected houses / total number of houses) * 100.
+#' - Breteau Index (BI): (number of positive containers / number of houses explored) * 100.
 #'
-#'
-#' @param df the dataframe with information.
-#' @param st The type of study selected. By default, it is set to
-#' "Verificacion".
+#' @param df The dataframe with information.
+#' @param st The type of study selected. By default, it is set to "Verificacion".
 #' @param var The geographic variable used to calculate the stegomyia indices.
-#' @param path_out path for that data of stegomyia indices and status. By
-#' default, it is set to "~/CursoQR/Package1/rStegomyiaIndices/data-raw/statusindicesector.csv"
+#' @param path_out The path for the data of stegomyia indices and status. By
+#' default, it is set to "data-raw/statusindicesector.csv".
 #'
-#' @return
-#'
-#' The dataframe with stegomyia indices and status of the selection of type of
+#' @return A dataframe with stegomyia indices and status of the selection of type of
 #' study and geographic variable.
 #'
-#' @export
-#'
 #' @examples
-#' get_stegomyia_indices_by_type_of_study_and_geo_is(df, st = "Verificacion",
-#'   var ="390").
+#' get_stegomyia_indices_by_type_of_study_and_geo_is(df0, st = "Verificacion", "390")
 #'
 
-####TODO: actualizar con vignette####
+
+
 get_stegomyia_indices_by_type_of_study_and_geo_is <- function(
     df,
     st = "Verificacion",
     var,
-    path_out="~/CursoQR/Package1/rStegomyiaIndices/data-raw/statusindicesector.csv"
+    path_out="data-raw/statusindicesector.csv"
 ) {
   filtered_df <- df %>%
     filter(Tipo_de_Estudio == st, Sector %in% var)
@@ -94,6 +84,12 @@ get_stegomyia_indices_by_type_of_study_and_geo_is <- function(
       )
     )%>%
     ungroup()
+  risk_levels <-c("Optimo", "Bueno","Alarma","Emergencia")
+
+  dfti <- dfti %>%
+    mutate(index_status_HI = factor(index_status_HI, levels = risk_levels)) %>%
+    mutate(index_status_CI = factor(index_status_CI, levels = risk_levels)) %>%
+    mutate(index_status_BI = factor(index_status_BI, levels = risk_levels))
   df <- dfti
   write_csv(df, path_out)
    return(dfti)

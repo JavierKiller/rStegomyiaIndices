@@ -25,10 +25,10 @@
 #' geographic variable.
 #'
 #' @examples
-#' get_stegomyia_indices_by_type_of_study_epidemic_week_and_loc(df, "Encuesta",
-#' " ew = 2, var = "HERMOSILLO")
 #'
-#'  @export
+#' get_stegomyia_indices_by_type_of_study_epidemic_week_and_loc(df0, st="Encuesta", " ew = 2, "HERMOSILLO")
+#'
+
 
 get_stegomyia_indices_by_type_of_study_epidemic_week_and_loc <- function(
     df,

@@ -29,8 +29,7 @@ Complementary to the Stegomyia indices, the type of positive container is
  breeding sites.
 }
 \examples{
-get_typology_container_by_type_of_study_and_location(df,
- st = "Verificacion",
- var ="CIUDAD_OBREGÓN").
+
+get_typology_container_by_type_of_study_and_location(df_full, st = "Verificacion", "CIUDAD_OBREGÓN")
 
 }

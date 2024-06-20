@@ -2,40 +2,34 @@
 % Please edit documentation in R/get_sector_with_star_date_by_type_study.R
 \name{get_sector_with_star_date_by_type_study}
 \alias{get_sector_with_star_date_by_type_study}
-\title{The Stegomyia indices are calculated for each sampling. Once the data have
-been loaded with function "load_rwa_data" and changed type data of function
-"clean_raw_data", select study type and geographic variable using the
-following
-   formulas:
-      - Container Index(CI): (number of infected containers/total number of
-      containers) * 100.
-      - House Index (HI): (number of infected houses /total number of
-      houses) * 100.
-      - Breteau Index (BI): (number of positive containers/number of houses
-      explored) * 100.}
+\title{Get sector with start date by type study}
 \usage{
 get_sector_with_star_date_by_type_study(
   df,
-  pathout =
-    "~/CursoQR/Package1/rStegomyiaIndices/data-raw/table_indices_sector_in_date.csv"
+  path_out = "data-raw/table_indices_sector_in_date.csv"
 )
 }
 \arguments{
-\item{df}{the dataframe with information.}
+\item{df}{The dataframe with the information.}
 
-\item{pathout}{~/CursoQR/Package1/rStegomyiaIndices/data-raw/table_indices_sector_in_date.csv}
+\item{pathout}{Path to the output CSV file (e.g., "data-raw/table_indices_sector_in_date.csv").}
 }
 \value{
-The dataframe with stegomyia indices of the selection of type of study and
-geographic variable.
+The dataframe with Stegomyia indices for the selected type of study and geographic variable.
 }
 \description{
-Compare the stegomyia indices in sector by type of study...
+The Stegomyia indices are calculated for each sampling. Once the data have
+been loaded with the function `load_raw_data` and cleaned using the function
+`clean_raw_data`, you can select the study type and geographic variable using the
+following formulas:
+- Container Index (CI): (number of infected containers / total number of containers) * 100
+- House Index (HI): (number of infected houses / total number of houses) * 100
+- Breteau Index (BI): (number of positive containers / number of houses explored) * 100
+}
+\details{
+Compare the Stegomyia indices in a sector by type of study.
 }
 \examples{
-get_sector_with_star_date_by_type_study(df,
-pathout = "/data-raw/example_table_indices_sector_in_date.csv",
-).
-
+get_sector_with_start_date_by_type_study(df0, path_out = "data-raw/example_table_indices_sector_in_date.csv")
 
 }

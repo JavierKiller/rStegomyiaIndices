@@ -33,7 +33,7 @@ following
       explored) * 100.
 }
 \examples{
-get_stegomyia_indices_by_type_of_study_and_geo(df, st = "Verificacion",
-  var ="390").
+
+get_stegomyia_indices_by_type_of_study_and_geo(df0, st = "Verificacion", "390")
 
 }

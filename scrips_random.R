@@ -1,3 +1,18 @@
+
+path <- "data-raw/estudio_entomologico.txt"
+
+ col_select <- c("Tipo de Estudio",
+                  "Jurisdiccion", "Localidad",
+                  "Sector", "Fecha de Inicio",
+                  "Semana Epidemiologica",
+                  "Casas Revisadas",
+                  "Casas Positivas",
+                  "Total de Recipientes con Agua",
+                  "Total de Recipientes Positivos")
+
+ dflrd <- load_raw_data(path, col_name = col_select)
+
+
 ## Diccionario de variables de la base de datos CSV
 
 dfdir <-read_csv("~/CursoQR/Package1/diccionario_estudio_entomologico.csv")
@@ -74,7 +89,7 @@ col_namef = cols(
   Recipientes_Eliminables = col_double()
 )
 
-df1 <- read_csv("./data/qr_for_test.csv")
+df1 <- read_csv("data/qr_for_test.csv")
 
 show_col_types = TRUE
 dft_ <- get_stegomyia_indices_by_type_of_study_star_date_and_geo(df = df, st = "Verificacion",
@@ -316,3 +331,97 @@ df_evt11 <- df_evalterado %>%
   ) %>%
   ungroup()
 df_evt11
+
+
+path_raw_data
+
+#"data-raw/estudio_entomologico1.txt"
+
+path_raw_data_error
+
+#"data-raw/estudio_entomologico_equivocado.txt"
+path_raw_data_error <- "data-raw/estudio_entomologico_equivocado.txt"
+usethis::use_data(path_raw_data_error, overwrite = TRUE)
+
+path_raw_data_error
+
+#"data-raw/data-raw/estudio_entomologico.txt"
+path <- "data-raw/estudio_entomologico1.txt"
+usethis::use_data(path, overwrite = TRUE)
+
+path_raw_data_empty
+
+#"data-raw/estudio_entomologico_sin_datos.txt"
+path_raw_data_empty <- "data-raw/estudio_entomologico_sin_datos.txt"
+usethis::use_data(path_raw_data_empty, overwrite = TRUE)
+
+labels
+
+labels_sub
+
+path_data_lew
+
+#qr_lew.csv
+path_data_lew <- "data-raw/qr_lew.csv"
+usethis::use_data(path_data_lew, overwrite = TRUE)
+
+#df_lew <- df_lewt son diferentes
+usethis::use_data(df_lew, overwrite = TRUE)
+
+path_data_full
+
+#qr_full.csv
+path_data_full <- "data-raw/qr_full.csv"
+usethis::use_data(path_data_full, overwrite = TRUE)
+
+df_full <- df_fullt
+usethis::use_data(df_full, overwrite = TRUE)
+
+path_data
+
+#qr.csv
+path_data <- "data-raw/qrt.csv"
+usethis::use_data(path_data, overwrite = TRUE)
+
+df0 <- df0t
+usethis::use_data(df0, overwrite = TRUE)
+
+path_data_lewt
+
+#qr_lewt.csv
+
+df_lewt
+
+path_data_fullt
+
+#qr_fullt.csv
+
+df_fullt
+
+path_datat
+
+#qrt.csv
+
+df0t
+
+dfm
+
+#statusindicesector.csv
+
+#ejercicio_sectores_hermosillo.shp
+
+w1 <- st_read("data-raw/maps/ejercicio_sectores_hermosillo.shp")
+w1
+usethis::use_data(w1, overwrite = TRUE)
+#ejercicio_sectores_hermosillo2.shp
+
+#d0=readShapePoly("data-raw/maps/ejercicio_sectores_hermosillo2.shp")
+d0 <- st_read("data-raw/maps/ejercicio_sectores_hermosillo2.shp")
+
+d0
+usethis::use_data(d0, overwrite = TRUE)
+
+dflrd
+usethis::use_data(dflrd, overwrite = TRUE)
+
+#get_stegomyia_indices_by_type_of_study_and_geo_is(df0, st = "Verificacion", var=)

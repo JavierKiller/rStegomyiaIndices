@@ -22,17 +22,16 @@
 #' The dataframe with Stegomyia indices of the selection of type of study and
 #' date.
 #'
-#' @export
+#'
 #' @examples
 #'
-#' df<-get_stegomyia_indices_by_type_of_study_and_star_date(df,
-#' st = "Verificacion", date = "2021/01/06" )
+#' get_stegomyia_indices_by_type_of_study_and_star_date(df0, st = "Verificacion", date = "2021/01/06" )
+#'
 
 get_stegomyia_indices_by_type_of_study_and_star_date <- function(
     df,
     st = "Verificacion",
-    date = "2021/01/07",
-    path_out = "~/CursoQR/Package1/rStegomyiaIndices/data-raw/indicesdate.csv"
+    date = "2021/01/07"
 ){
   df$Fecha_de_Inicio <- as.Date(df$Fecha_de_Inicio, format = "%d/%m/%Y")
   dfd <- df %>%

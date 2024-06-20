@@ -23,14 +23,13 @@
 #' The dataframe with stegomyia indices of the selection of type of study and
 #' geographic variable.
 #'
-#' @export
 #'
 #' @examples
-#' get_stegomyia_indices_by_type_of_study_and_geo(df, st = "Verificacion",
-#'   var ="390").
+#'
+#' get_stegomyia_indices_by_type_of_study_and_geo(df0, st = "Verificacion", "390")
 #'
 
-####TODO: actualizar con vignette####
+
 get_stegomyia_indices_by_type_of_study_and_geo <- function(
       df,
       st = "Verificacion",

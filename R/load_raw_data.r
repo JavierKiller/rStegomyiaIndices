@@ -16,22 +16,13 @@
 #'
 #' @return
 #' A data frame with selected and format in variable data
-#' @export
 #'
 #' @examples
 #'
-#' path <- "./data-raw/estudio_entomologico.txt"
+#' path1 <- "data-raw/estudio_entomologico1.txt"
 #'
-#' col_select <- c("Tipo de Estudio",
-#'                  "Jurisdiccion", "Localidad",
-#'                  "Sector", "Fecha de Inicio",
-#'                  "Semana Epidemiologica",
-#'                  "Casas Revisadas",
-#'                  "Casas Positivas",
-#'                  "Total de Recipientes con Agua",
-#'                  "Total de Recipientes Positivos")
+#' load_raw_data(path1)
 #'
-#' df <- load_raw_data(path, col_name = col_select)
 #'
 
 load_raw_data <- function(
@@ -50,7 +41,8 @@ load_raw_data <- function(
     )
 ){
   df <- read_tsv(
-    path,
+    file = path,
+    col_names = TRUE,
     locale = locale(encoding = "UTF-16" )
   )
   names_df <- names(df)
@@ -63,8 +55,8 @@ load_raw_data <- function(
     stop("data file .txt is empty")
   }
   df <- read_tsv(
-    path,
-    col_select = col_name,
+    file = path,
+    col_select = all_of(col_name),
     locale = locale(encoding = "UTF-16" )
   )
   # Eliminate spaces in the column names and replace them with underscores _

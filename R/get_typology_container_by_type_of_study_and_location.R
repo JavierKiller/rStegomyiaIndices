@@ -14,14 +14,13 @@
 #' The dataframe with location of the selection of type of study and
 #' geographic variable.
 #'
-#' @export
 #'
 #' @examples
-#' get_typology_container_by_type_of_study_and_location(df,
-#'  st = "Verificacion",
-#'  var ="CIUDAD_OBREGÓN").
 #'
-####TODO: actualizar documentation####
+#' get_typology_container_by_type_of_study_and_location(df_full, st = "Verificacion", "CIUDAD_OBREGÓN")
+#'
+
+
 get_typology_container_by_type_of_study_and_location <- function(df,
                  st = "Verificacion",
                  var = c("CIUDAD_OBREGÓN","HERMOSILLO"))
@@ -60,10 +59,3 @@ get_typology_container_by_type_of_study_and_location <- function(df,
     )
   return(dfts)
 }
-
-
-# df0 <- get_typology_container_by_type_of_study_and_location(df = df,
-#                                                      st = "Encuesta",
-#                                                      var = c("HERMOSILLO","NAVOJOA", "CIUDAD_OBREGÓN")
-# )
-# df0

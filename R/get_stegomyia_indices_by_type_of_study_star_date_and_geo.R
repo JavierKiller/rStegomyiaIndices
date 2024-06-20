@@ -25,10 +25,10 @@
 #' geographic variable.
 #'
 #' @examples
-#' get_stegomyia_indices_by_type_of_study__star_date_and_geo(df, "Encuesta",
-#' "2021/01/07, var = "390")
 #'
-#'  @export
+#' get_stegomyia_indices_by_type_of_study__star_date_and_geo(df0, st="Encuesta", date="2021/01/07, "390")
+#'
+
 
 get_stegomyia_indices_by_type_of_study_star_date_and_geo <- function(
     df,

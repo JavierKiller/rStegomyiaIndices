@@ -16,15 +16,17 @@
 #' @return
 #'
 #' Data.frame A .csv file with selected and cleaned data
-#' @export
 #'
 #' @examples
+#'
+#' clean_raw_data(dflrd)
+#'
 #'
 
 clean_raw_data <- function(
     df,
-    path_out = "~/CursoQR/Package1/rStegomyiaIndices/data-raw/qr.csv",
-    col_name = cols(
+    path_out = "data-raw/qr.csv",
+    col_name = cols( #describir porque se le da este formato a las variables
       Tipo_de_Estudio = col_factor(levels = c(
         "Encuesta",
         "Verificacion")),
@@ -56,13 +58,13 @@ clean_raw_data <- function(
       Total_de_Recipientes_Positivos = col_double()
     )
 ){
-  write_csv(df, path_out)
+  write_csv(df, file = path_out)
 
   df_aux <- read_csv(
     path_out,
     col_types = col_name
   )
   df <- df_aux
-  write_csv(df, path_out)
+  write_csv(df, file = path_out)
   return(df)
 }

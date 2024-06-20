@@ -43,13 +43,10 @@ type of study and geographic variable.
 ```{r}
 
 library(rStegomyiaIndices)
-df <- read.csv("~/CursoQR/Package1/rStegomyiaIndices/data-raw/statusindicesector.csv")
-w1 <- st_read("~/CursoQR/Package1/rStegomyiaIndices/data-raw/maps/ejercicio_sectores_hermosillo.shp")
 
-d0 <- readShapePoly("~/CursoQR/Package1/rStegomyiaIndices/data-raw/maps/ejercicio_sectores_hermosillo2.shp")
-maps <- get_maps_stegomyia_indices(df)
+#maps1 <- get_maps_stegomyia_indices(dfm)
 
-listmaps
+#maps1
 
 ```
 
@@ -57,6 +54,6 @@ listmaps
 
 ```{r}
 
-get_sector_with_star_date_by_type_study(df, pathout)
+#get_sector_with_star_date_by_type_study(df, pathout)
 
 ```

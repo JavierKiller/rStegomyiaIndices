@@ -1,10 +1,10 @@
-# path_raw_data_prefix <- "~/CursoQR/Package1/rStegomyiaIndices"
-# path_raw_data_file_name <- "/data-raw/estudio_entomologico1.txt"
-# path_raw_data <- paste(path_raw_data_prefix, path_raw_data_file_name, sep = "")
-# prdefile_name <- "/data-raw/estudio_entomologico_equivocado.txt"
-# path_raw_data_error <- paste(path_raw_data_prefix,prdefile_name, sep = "")
-# prdemfile_name <- "/data-raw/estudio_entomologico_sin_datos.txt"
-# path_raw_data_empty <- paste(path_raw_data_prefix,prdemfile_name, sep = "")
+ path_raw_data_prefix <- "~/CursoQR/Package1/rStegomyiaIndices"
+ path_raw_data_file_name <- "/data-raw/estudio_entomologico1.txt"
+ path_raw_data <- paste(path_raw_data_prefix, path_raw_data_file_name, sep = "")
+ prdefile_name <- "/data-raw/estudio_entomologico_equivocado.txt"
+ path_raw_data_error <- paste(path_raw_data_prefix,prdefile_name, sep = "")
+ prdemfile_name <- "/data-raw/estudio_entomologico_sin_datos.txt"
+ path_raw_data_empty <- paste(path_raw_data_prefix,prdemfile_name, sep = "")
 # labels <- c(
 #   "Tipo_de_Estudio",
 #   "Clave_Jurisdiccion",
@@ -25,6 +25,17 @@
 #   "Casas_Positivas",
 #   "Total_de_Recipientes_con_Agua",
 #   "Total_de_Recipientes_Positivos")
+#if (file.exists(path_raw_data_error) & file.exists(path_raw_data_empty) & file.exists(path_raw_data)) {
+
+#setwd("Package1/rStegomyiaIndices")
+
+#path_raw_data <- "data-raw/estudio_entomologico1.txt"
+#path_raw_data_error <- "data-raw/estudio_entomologico_equivocado.txt"
+#path_raw_data_empty <- "data-raw/estudio_entomologico_sin_datos.txt"
+
+#print(getwd())
+#print(list.files("data-raw"))
+
 test_that(
   "assess_load_raw_data_error_Tipo_de_Estudio",
   {
@@ -62,3 +73,7 @@ test_that(
     expect_named(expected, labels_sub)
   }
 )
+
+#} else {
+#  message("One or more data files not found in the specified path. Please check file paths.")
+#}

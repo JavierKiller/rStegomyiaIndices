@@ -34,9 +34,6 @@ indices.
 }
 \examples{
 
-df(df = "~/CursoQR/Package1/rStegomyiaIndices/data-raw/statusindicesector.csv" ,
-m1 = "ejercicio_sectores_hermosillo.shp",
-m0 = "ejercicio_sectores_hermosillo2.shp"
-).
+get_maps_stegomyia_indices(dfm)
 
 }

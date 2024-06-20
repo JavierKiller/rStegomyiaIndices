@@ -1,0 +1,62 @@
+---
+title: "Items"
+author: "Javier Verdugo"
+date: "2024-06-05"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Table of items
+
+| Path          | Filename                            | Description                                          |
+|---------------|-------------------------------------|------------------------------------------------------|
+| data          | path_raw_data                       | path del archivo estudio_entomologico1.txt           |
+| data-raw      | estudio_entomologico1.txt           |                                                      |
+| data          | path_raw_data_error                 | path del archivo estudio_entomologico_equivocado.txt |
+| data-raw      | estudio_entomologico_equivocado.txt |                                                      |
+| data          | path_raw_data_empty                 | path del archivo estudio_entomologico_sin_datos.txt  |
+| data-raw      | estudio_entomologico_sin_datos.txt  |                                                      |
+| data          | labels                              | lista de nombre (12)                                 |
+| data          | labels_sub                          | lista de nombre(6)                                   |
+| data          | path_data_lew                       | path del archivo qr_lew.csv                          |
+| data-raw      | qr_lew.csv                          |                                                      |
+| data          | df_lew                              | data frame de qr_lew.cvs                             |
+| data          | path_data_full                      | path del archivo qr_full.csv                         |
+| data-raw      | qr_full.csv                         |                                                      |
+| data          | df_full                             | data frame del archivo qr_full.csv                   |
+| data          | path_data                           | path del archivo qr.csv                              |
+| data-raw      | qr.csv                              |                                                      |
+| data-raw      | df0                                 | dataframe del archivo qr.csv                         |
+| data          | path_data_lewt                      | path del archivo qr_lewt.csv                         |
+| data-raw      | qr_lewt.csv                         |                                                      |
+| data          | df_lewt                             | data frame del archivo qr_lewt.csv                   |
+| data          | path_data_fullt                     | path del archivo qr_fullt.csv                        |
+| data-raw      | qr_fullt.csv                        |                                                      |
+| data          | df_fullt                            |                                                      |
+| data          | path_datat                          | path del archivo qrt.csv                             |
+| data-raw      | qrt.csv                             |                                                      |
+| data-raw      | df0t                                | dataframe del archivo qrt.csv                        |
+| data-raw/maps | statusindicesector.csv              |                                                      |
+| data-raw/maps | ejercicio_sectores_hermosillo.shp   |                                                      |
+| data-raw/maps | w1                                  | objeto cargado de ejercicio_sectores_hermosillo.shp  |
+| data-raw/maps | ejercicio_sectores_hermosillo2.shp  | solo contornos de ejercicio_sectores_hermosillo.shp  |
+| data-raw/maps | d0                                  | objeto cargado de ejercicio_sectores_hermosillo2.shp |
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

@@ -3,45 +3,39 @@
 %   R/get_stegomyia_indices_by_type_of_study_and_geo_is.R
 \name{get_stegomyia_indices_by_type_of_study_and_geo_is}
 \alias{get_stegomyia_indices_by_type_of_study_and_geo_is}
-\title{Get stegomyia indices by type of study  geo and indices status}
+\title{Get stegomyia indices by type of study and geographic variable}
 \usage{
 get_stegomyia_indices_by_type_of_study_and_geo_is(
   df,
   st = "Verificacion",
   var,
-  path_out = "~/CursoQR/Package1/rStegomyiaIndices/data-raw/statusindicesector.csv"
+  path_out = "data-raw/statusindicesector.csv"
 )
 }
 \arguments{
-\item{df}{the dataframe with information.}
+\item{df}{The dataframe with information.}
 
-\item{st}{The type of study selected. By default, it is set to
-"Verificacion".}
+\item{st}{The type of study selected. By default, it is set to "Verificacion".}
 
 \item{var}{The geographic variable used to calculate the stegomyia indices.}
 
-\item{path_out}{path for that data of stegomyia indices and status. By
-default, it is set to "~/CursoQR/Package1/rStegomyiaIndices/data-raw/statusindicesector.csv"}
+\item{path_out}{The path for the data of stegomyia indices and status. By
+default, it is set to "data-raw/statusindicesector.csv".}
 }
 \value{
-The dataframe with stegomyia indices and status of the selection of type of
+A dataframe with stegomyia indices and status of the selection of type of
 study and geographic variable.
 }
 \description{
 The Stegomyia indices are calculated for each sampling. Once the data have
-been loaded with function "load_raw_data" and changed type data of function
-"clean_raw_data", select study type and geographic variable using the
-following
-   formulas:
-      - Container Index(CI): (number of infected containers/total number of
-      containers) * 100.
-      - House Index (HI): (number of infected houses /total number of
-      houses) * 100.
-      - Breteau Index (BI): (number of positive containers/number of houses
-      explored) * 100.
+been loaded with the function "load_raw_data" and processed with the function
+"clean_raw_data", you can select the study type and geographic variable using the
+following formulas:
+- Container Index (CI): (number of infected containers / total number of containers) * 100.
+- House Index (HI): (number of infected houses / total number of houses) * 100.
+- Breteau Index (BI): (number of positive containers / number of houses explored) * 100.
 }
 \examples{
-get_stegomyia_indices_by_type_of_study_and_geo_is(df, st = "Verificacion",
-  var ="390").
+get_stegomyia_indices_by_type_of_study_and_geo_is(df0, st = "Verificacion", "390")
 
 }

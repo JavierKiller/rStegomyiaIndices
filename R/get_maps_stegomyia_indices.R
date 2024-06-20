@@ -23,10 +23,7 @@
 #'
 #' @examples
 #'
-#' df(df = "~/CursoQR/Package1/rStegomyiaIndices/data-raw/statusindicesector.csv" ,
-#' m1 = "ejercicio_sectores_hermosillo.shp",
-#' m0 = "ejercicio_sectores_hermosillo2.shp"
-#' ).
+#' get_maps_stegomyia_indices(dfm)
 #'
 
 get_maps_stegomyia_indices <- function(
@@ -51,104 +48,61 @@ get_maps_stegomyia_indices <- function(
     rename(Sector = SECCION)
   #join to data table
   w2_ <- w2 %>%
-    left_join(df,
+    right_join(df,
               by = "Sector")
-  #w2_
-  #save map with data and correct format
-  st_write(w2_,
-           dsn = "~/CursoQR/Package1/rStegomyiaIndices/data-raw/maps/ejercicio_sectores_hermosillo_transformado.shp",
-           append = F)
-  #load to new map
-  dw <- readShapePoly("~/CursoQR/Package1/rStegomyiaIndices/data-raw/maps/ejercicio_sectores_hermosillo_transformado.shp")
+  w2_ <- w2_ %>% drop_na()
 
-  #lista de colores
   colores_id <- c(
     "Optimo" = "blue",
     "Bueno" = "green",
     "Alarma" = "yellow",
     "Emergencia" = "red"
   )
-  df_HI <- fortify(dw,
-                 region = "ind__HI")
- #map HI
+
   p_HI <- ggplot() +
-    geom_polygon(data = d0,
-                 aes(x = long,
-                     y = lat,
-                     group = group),
-                 color = "black",
-                 size = 0.5,
-                 alpha = 0) +
-    geom_polygon(data = df_HI,
-                 aes(x = long,
-                     y = lat,
-                     group = group,
-                     fill = id),
-                 color = "black",
-                 size = 0.5) +
-    coord_map() +
+    geom_sf(data = m0,
+            fill = NA,
+            size = 0.5) +
+    geom_sf(data = w2_,
+            aes(fill = index_status_HI),
+            color = "black",
+            size = 0.5) +
+    coord_sf() +
     labs(title = "Stegomyia House Index in Hermosillo") +
-    scale_fill_manual(values = colores_id) +
-    ggsave("p_HI.png", path = "~/CursoQR/Package1/rStegomyiaIndices/visualization")
+    scale_fill_manual(values = colores_id)
 
-  df_CI <- fortify(dw,
-                   region = "ind__CI")
- #map CI
   p_CI <- ggplot() +
-    geom_polygon(data = d0,
-                 aes(x = long,
-                     y = lat,
-                     group = group),
-                 color = "black",
-                 size = 0.5,
-                 alpha = 0) +
-    geom_polygon(data = df_CI,
-                 aes(x = long,
-                     y = lat,
-                     group = group,
-                     fill = id),
-                 color = "black",
-                 size = 0.5) +
-    coord_map() +
+    geom_sf(data = m0,
+            fill = NA,
+            size = 0.5) +
+    geom_sf(data = w2_,
+            aes(fill = index_status_CI),
+            color = "black",
+            size = 0.5) +
+    coord_sf() +
     labs(title = "Stegomyia Container Index in Hermosillo") +
-    scale_fill_manual(values = colores_id) +
-    ggsave("p_CI.png", path = "~/CursoQR/Package1/rStegomyiaIndices/visualization")
+    scale_fill_manual(values = colores_id)
 
-  df_BI <- fortify(dw,
-                   region = "ind__BI")
- #map BI
+
   p_BI <- ggplot() +
-    geom_polygon(data = d0,
-                 aes(x = long,
-                     y = lat,
-                     group = group),
-                 color = "black",
-                 size = 0.5,
-                 alpha = 0) +
-    geom_polygon(data = df_BI,
-                 aes(x = long,
-                     y = lat,
-                     group = group,
-                     fill = id),
-                 color = "black",
-                 size = 0.5) +
-    coord_map() +
+    geom_sf(data = m0,
+            fill = NA,
+            size = 0.5) +
+    geom_sf(data = w2_,
+            aes(fill = index_status_BI),
+            color = "black",
+            size = 0.5) +
+    coord_sf() +
     labs(title = "Stegomyia Breteau Index in Hermosillo") +
-    scale_fill_manual(values = colores_id) +
-    ggsave("p_BI.png", path = "~/CursoQR/Package1/rStegomyiaIndices/visualization")
+    scale_fill_manual(values = colores_id)
+
 
   listmaps<-list(p_HI, p_CI, p_BI)
 
-#print(listmaps)
+  ggsave("p_HI.png", path = "visualization")
+  ggsave("p_CI.png", path = "visualization")
+  ggsave("p_BI.png", path = "visualization")
+
+  return(listmaps)
 
 }
-
-# library(GISTools)
-# library(Cairo)
-# library(tidyverse)
-# library(raster)
-# library(rgeos)
-# library(maptools)
-# library(ggmap)
-# library(ggplot2)
-# library(sf)

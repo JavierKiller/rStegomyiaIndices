@@ -6,7 +6,7 @@
 \usage{
 clean_raw_data(
   df,
-  path_out = "~/CursoQR/Package1/rStegomyiaIndices/data-raw/qr.csv",
+  path_out = "data-raw/qr.csv",
   col_name = cols(Tipo_de_Estudio = col_factor(levels = c("Encuesta", "Verificacion")),
     Clave_Jurisdiccion = col_factor(levels = as.character(c(2601, 2602, 2603, 2604, 2605,
     2606))), Jurisdiccion = col_factor(levels = c("Hermosillo", "Caborca", "Cananea",
@@ -38,4 +38,10 @@ conducted on the platform "Vigilancia Entomológica y Control Integral del
 Vector". This function aims to generate new data.frame suitable for
 further analysis and manipulation. It also saves the data from the
 data.frame to a .csv file
+}
+\examples{
+
+clean_raw_data(dflrd)
+
+
 }

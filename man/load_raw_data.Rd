@@ -31,17 +31,9 @@ the variable and the other with the name of the variable.
 }
 \examples{
 
-path <- "./data-raw/estudio_entomologico.txt"
+path1 <- "data-raw/estudio_entomologico1.txt"
 
-col_select <- c("Tipo de Estudio",
-                 "Jurisdiccion", "Localidad",
-                 "Sector", "Fecha de Inicio",
-                 "Semana Epidemiologica",
-                 "Casas Revisadas",
-                 "Casas Positivas",
-                 "Total de Recipientes con Agua",
-                 "Total de Recipientes Positivos")
+load_raw_data(path1)
 
-df <- load_raw_data(path, col_name = col_select)
 
 }

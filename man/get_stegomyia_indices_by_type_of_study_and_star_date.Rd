@@ -8,8 +8,7 @@
 get_stegomyia_indices_by_type_of_study_and_star_date(
   df,
   st = "Verificacion",
-  date = "2021/01/07",
-  path_out = "~/CursoQR/Package1/rStegomyiaIndices/data-raw/indicesdate.csv"
+  date = "2021/01/07"
 )
 }
 \arguments{
@@ -39,6 +38,6 @@ been loaded with function "load_rwa_data" and changed type data of function
 }
 \examples{
 
-df<-get_stegomyia_indices_by_type_of_study_and_star_date(df,
-st = "Verificacion", date = "2021/01/06" )
+get_stegomyia_indices_by_type_of_study_and_star_date(df0, st = "Verificacion", date = "2021/01/06" )
+
 }

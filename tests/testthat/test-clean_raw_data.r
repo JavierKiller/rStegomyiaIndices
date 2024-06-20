@@ -31,21 +31,21 @@ colt= list(
   Total_de_Recipientes_Positivos = "d"
 )
 test_that("assess_clean_raw_data", {
-  expected <- clean_raw_data(df0, path_out = path_datat)
+  expected <- clean_raw_data(df0, path_out = path_data)
   expect_identical(str(colt), str(expected))
   expect_s3_class(expected, "data.frame")
   expect_equal(dim(expected), c(42, 12))
   }
 )
 test_that("assess_clean_raw_data_sub", {
-  expected <- clean_raw_data(df_lew, path_out = path_data_lewt)
+  expected <- clean_raw_data(df_lew, path_out = path_data_lew)
   expect_identical(str(colt), str(expected))
   expect_s3_class(expected, "data.frame")
   expect_equal(dim(expected), c(42, 7))
   }
 )
 test_that("assess_clean_raw_data_extra", {
-  expected <- clean_raw_data(df_full, path_out = path_data_fullt)
+  expected <- clean_raw_data(df_full, path_out = path_data_full)
   expect_identical(str(colt), str(expected))
   expect_s3_class(expected, "data.frame")
   expect_equal(dim(expected), c(42, 19))
